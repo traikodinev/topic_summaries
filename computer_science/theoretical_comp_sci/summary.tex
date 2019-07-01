@@ -1,0 +1,314 @@
+\iffalse
+This is a big-ish template that I've been using for years now.
+A lot of the includes are redundant, so if you're reading this and have no idea why
+I've included most things, don't worry - I don't either.
+Also, compiling this (to PDF, for instance) relies on CSS files present on my
+computer (coming from the packages). So it might not look as nice if you
+do it on yours (especially if you don't have all the packages).
+
+Ya'll've been warned.
+\fi
+
+\documentclass{article}
+    \usepackage{subcaption}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{color}
+    \usepackage{xcolor}
+    \usepackage{graphicx}
+    \usepackage{caption}
+    \usepackage{float}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage{enumitem}
+    \usepackage[bottom]{footmisc}
+    \usepackage{flexisym}
+    \usepackage{cancel}
+    \usepackage[margin=.8in, tmargin=.8in]{geometry}
+    \usepackage{titlesec}
+    \usepackage{physics}
+    \usepackage{flexisym}
+    \usepackage{bussproofs}
+
+    \renewcommand{\baselinestretch}{1.2}
+    \newcommand{\eps}{\epsilon}
+    \newcommand{\tens}{\otimes}
+    \newcommand{\asdef}{\triangleq}
+    \newcommand{\w}{\mathbf{w}}
+    \newcommand{\x}{\mathbf{x}}
+    % \newcommand{\l}{\left(}
+    
+    
+    \setlength\parindent{0pt}
+    \captionsetup{justification=centering}
+    
+    \title{Introduction to Theoretical Computer Science 2017 Summary}
+    \date{\today}
+    \author{Traiko Dinev \textless traiko.dinev@gmail.com\textgreater}
+    
+\begin{document}
+\maketitle
+
+\textit{NOTE: This partially follows Introduction to Theoretical Computer Science, a course at the University of Edinburgh.}
+
+\textit{NOTE: Note this "summary" is NOT a reproduction of the course materials nor is it copied from the corresponding courses. It was entirely written and typeset from scratch.}
+
+\textit{License: Creative Commons public license; See README.md of repository}
+
+\subsection{Pairing}
+
+\label{sec:pairing}
+How do we encode many numbers into one? Easy:
+\begin{align*}
+    z &= \langle x, y \rangle_2 = 2^x 3^y \\
+    z &= \langle x, \langle y, \dots \rangle \rangle
+\end{align*}
+In the many number case we need to know how many number we have. We can encode that in the first number, however. This means registers below can represent anything, since they are unbounded.
+
+\section{Register Machines}
+Register machines are like assembly. We have a \textbf{fixed} number of registers $R_0, \dots, R_{m-1}$ and a program $P$, which has $n$ instructions, $I_0, \dots, I_{n-1}$. Things are executed in order, except for $DECJZ$.
+We have two instructions:
+
+\begin{itemize}
+    \item $INC(i)$ - increment register $i$ by 1
+    \item $DECJZ(i, j)$ - if $R_i = 0$, then goto $I_j$, else subtract 1 from $R$
+\end{itemize}
+
+\section{Halting Problem and Decision Problems}
+A machine is encoded as in section \ref{sec:pairing}:
+\begin{align*}
+    & \ulcorner M\urcorner >= \langle \ulcorner P\urcorner,\ \ulcorner R\urcorner,\      \ulcorner C\urcorner \rangle \\
+    & \ulcorner P\urcorner = \langle \ulcorner I_0\urcorner, \dots, \ulcorner I_{n-1}\urcorner \rangle \\
+    & \ulcorner R\urcorner = \langle \ulcorner R_0\urcorner, \dots, \ulcorner R_{n-1}\urcorner \rangle \\
+    & \ulcorner INC(i)\urcorner = \langle 0, i \rangle \\
+    & \ulcorner DECJZ(i)\urcorner = \langle 1, i, j \rangle \\
+\end{align*}
+
+We thus encode everything, including instructions, registers and the initial register values $R$.
+
+\subsection{Decision Problem}
+A decision problem is a boolean query onto a subdomain $Q$ in $D$ - $(D, Q)$. The query is, for an element $d$, is $d$ in $Q$ or not? I.e. is $d \in Q$. We also say $Q(d) = 0 ? 1$. We know that $d \in D$. For machines, $D$ is the domain of all machines; these are integers, encoded as above.
+\vskip 0.1in
+An \textbf{oracle} is a machine that knows the answer to our decision problem above. $ORACLE_Q(0)$ is an instruction which calls the oracle for the problem $Q$ and puts the $1$ or $0$ in $R_0$.
+\vskip 0.1in
+A \textbf{turing transducer} is a machine that translates a decision problem to another one. It takes in $R_0$ an instance of $(D, Q)$ and outputs in $R_0$ a $d' = f(d)$ of $(D', Q')$.
+\vskip 0.1in
+A \textbf{mapping reduction} or a \textbf{many-to-one reduction} is a turing transducer as above, such that $d \in Q$ if and only if (\textit{iff}) $f(d) \in Q'$.
+\vskip 0.1in
+A \textbf{M-reduction} is a turing transducer that, after computing $d'$, calls $ORACLE_{Q'}(0)$ and halts. Quoting the $ITCS$ course, "If you allow the transducer to call the oracle freely, you get a Turing reduction.
+These are also useful; but they're more powerful, so don't make such fine
+distinctions of computing power.".
+\vskip 0.1in
+Reductions are the way we translate problems to more solvable ones. A reduction $Red(H, Q)$ translates problem $H$ to problem $Q$. Quoting ITCS "Suppose $Q$ is decidable. Then given $M \in RM$, feed it to $Red(H, Q)$
+to decide $M \in H$. But if $Q$ is decidable, we can replace the oracle,
+and $Red(H, Q)$ is just an ordinary $RM$. Hence $H$ is decidable –
+contradiction. So $Q$ must be undecidable".
+\vskip 0.1in
+\subsection{Halting Problem}
+Assume a machine $H$ can take in a machine $M$ in $R_0$ and tell us if $M$ halts. Then make the machine $L$, which takes a program $M_1$ in its $R_0$ and terminates with $1$ if $H$ returns $0$ and goes in a loop if $H$ returns $1$. Thus $L$ loops if its input halts. Now let's diagonalize, i.e. feed $L$'s code into $L$. If $L$ loops, then by definition $L$ halts and vice-versa. Hence we can not have a machine $M$. Note this doesn't stop us from having a machine that tells us if a subclass of program halts. We can't have a universal one, that's all.
+\vskip 0.1in
+Variations of the problem:
+\begin{itemize}
+    \item Uniform Halting - does $M$ halt on all inputs
+    \item Looping - does $M$ loop on all inputs
+    \item Uniform Looping
+\end{itemize}
+\vskip 0.1in
+\textbf{Semi-decidable} problems are those for which we can say $Yes$ in finite time. \textbf{Halting} is one. Interleaving allows us to do this:
+\begin{itemize}
+    \item In a loop, go over machines $M$. They are integers, so we can do this.
+    \item Each iteration simulate all machines before for one step. If one halts, output it.
+\end{itemize}
+
+In finite time, we can output all machines that halt. Hence we can check if some machine halts, but not if it doesn't. Looping is the opposite.
+
+\section{Big-O and little-O}
+\begin{align*}
+    f \in O(g)\ \text{iff}\ \exists c, n_0 . \forall n > n_0 . f(n) \leq cg(n) \\
+    f \in \Omega(g)\ \text{iff}\ \exists c, n_0 . \forall n > n_0 . f(n) \geq cg(n) \\
+\end{align*}
+
+For little:
+\begin{align*}
+    f(n) \in o(g(n)) . \forall \epsilon > 0. \exists n_0 . \forall n > n_0 .
+    \abs{f(n)} \leq \epsilon \abs{g(n)}
+\end{align*}
+
+\subsection{Polynomial Complexity}
+\begin{itemize}
+    \item PTime: time $f(n) \in O(n^k)$ for some $k$
+    \item PTime reduction $(D', Q')$ to $(D, Q)$ in PTime, we say $Q' \leq^P Q$
+\end{itemize}
+
+\section{Non-Deterministic RM}
+Add an instruction $MAYBE(J)$, which either
+$\begin{cases}
+    does\ nothing \\
+    jumps\ to\ I_j
+\end{cases}
+$. In time $n$, our machine can go over all branches for all maybe instructions. This is, of course, not realistic, unless quantum, which we don't talk about here. Even then it's not exactly so. Our $NP$ (non-deterministic polynomial) machine can examine $2^{O(n)}$ paths in $n$ time. We also have equivalent definitions via a verifier (i.e. the problem can be checked in polynomial time). Check wikipedia or ITCS tutorials for that definition.
+
+\begin{itemize}
+    \item $Q$ is easier than $Q'$ iff $Q \leq^P Q'$
+    \item NP-hard iff $Q \geq^P Q'$ for all $Q' \in NP$
+    \item NP-complete iff NP-hard and NP 
+\end{itemize}
+
+\subsection{SAT}
+Suppose $(D, Q) \in NP$. Then by the Cook-Levin theorem $Q \leq^P SAT$ is NP-complete. Trivia - independently discovered by Cook and Levin and we attribute to both after the fall of the iron curtain.
+\vskip 0.1in
+For a decision problem $d \in D$, design a problem $\phi_d$ which is satisfied
+if it describes an execution of a a NRM (non-determnistic RM) checking Q. Size of $\phi_d$ is polynomial in d. We basically encode everything, check ITCS or wiki. Other problems:
+
+\begin{itemize}
+    \item CLIQUE: Does the graph $G$ have a k-fully connected subset (clique). Same as SAT, done via boolean expressions equivalence (exercise.)
+    \item INDSET: Inverse of clique, independent set
+    \item 3-SAT: version of sat, automatically we get this if we did SAT via turing machines, instead of register machines
+\end{itemize}
+
+\subsection{More Complexity}
+\begin{itemize}
+    \item EXPTIME: harder than P and NP
+    \item 2-ExpTime $\ngeq$ ExpTime
+    \item PSpace $\supseteq$ PTime
+    \item PSpace $\supseteq$ NPTime
+    \item PSpace $\subseteq$ ExpTime
+\end{itemize}
+
+Note Space = \# bits in registers.
+
+\subsection{Polynomial Hierarchy}
+\begin{align*}
+    \Sigma_1^P = NP^P = NP \\
+    \triangle_{n+1}^P = P^{\Sigma_n^P} \\
+    \triangle_0^P = \Sigma_0^P = \Pi_0^P = P
+\end{align*}
+
+\section{Lambda Calculus}
+A different model of computation, proposed by Alonso Church. Variables are $x, y, z, \dots$ also known as terms. If $x:\ var$, $t:\ term$ then $\lambda x.t$ is also a term. These are effectively functions.
+\vskip 0.1in
+if s and t are terms, then (st) is also a term.
+\begin{align*}
+    & \lambda x.s\lambda y.xty \asdef \lambda x.(s(\lambda y.((xt)y))) \\
+    & stu \asdef (st)u
+\end{align*}
+This is how we group stuff together. 
+\vskip 0.1in
+If x is free in $t'$, then it's bound in $\lambda x.t'$. We have rules about how to compute stuff. $\alpha$-conversion: changes the names of variables, $\beta$ conversion evaluates things:
+
+\begin{align*}
+    & (\lambda x.t)(s) \xrightarrow{\beta} t[s / x]\ \text{where x is replaced by s in t} \\
+    & (\lambda x.fx) \leftrightarrow^\eta f\ \text{eta conversion, go back and forth}
+\end{align*}
+
+Call by name:
+\begin{align*}
+    & (\lambda z.w)((\lambda x.x)(\lambda x.xx)) \xrightarrow{\beta} w \\
+    & + n_1 n_2 \xrightarrow{\beta} n\ \text{add $n_1$ + $n_2$ into n} \\
+    & \text{if}\ bst \xrightarrow{\beta} \begin{cases}
+         s\ \text{if b is true} \\
+         t\ \text{if b is false}
+    \end{cases}
+\end{align*}
+
+Y combinator, does recursion:
+\begin{align*}
+    & Y \asdef \lambda F.(\lambda X.F(XX)) (\lambda X.F(XX)) \\
+    & YG \xrightarrow{\beta} G(YG)
+\end{align*}
+
+\section{Typing Rules in Lambda Calculus}
+Assign type to each term $\lambda x:\alpha. y:\beta$. Then this is a function, of type $\alpha \rightarrow \beta$. Three typing rules:
+
+\begin{prooftree}
+    \AxiomC{$x: \sigma \in \Gamma$}
+    \UnaryInfC{$\Gamma \vdash x : \sigma$}
+\end{prooftree}
+
+\begin{prooftree}
+    \AxiomC{$\Gamma, x:\sigma \vdash t: \tau$}
+    \UnaryInfC{$\Gamma \vdash \lambda x:\sigma.t: \sigma \rightarrow \tau$}
+\end{prooftree}
+
+\begin{prooftree}
+    \AxiomC{$\Gamma \vdash t:\sigma \rightarrow \tau$}
+    \AxiomC{$\Gamma \vdash s: \sigma$}
+    \BinaryInfC{$\Gamma \vdash ts : \tau$}
+\end{prooftree}
+
+The $0^{th}$ rule is that $\Gamma \vdash c:\tau$ for all constant c of base types $\tau$. Base types are nat, bool, etc.
+\vskip 0.1in
+Here's a sample inference of types, going from below. The expression is $\lambda f. \lambda x.f(fx)$.
+Assume that the expression has the type ($nat \to nat \to \alpha$), since it's a lambda abstraction
+taking an argument of type ($nat \to nat$) and returning some type $\alpha$. Our goal is to find a
+type for $\alpha$. 
+
+\begin{prooftree}
+        \AxiomC{}
+        \UnaryInfC{$f:nat \to nat, x: nat \vdash f : \gamma \to \beta$}
+
+            \AxiomC{$f:nat \to nat, x: nat \vdash f : \epsilon \to \gamma$}
+            \AxiomC{$f:nat \to nat, x: nat \vdash x : \epsilon$ \qquad \textcolor{blue}{[$\epsilon = nat$]}}
+        
+        \BinaryInfC{$f:nat \to nat, x: nat \vdash fx : \gamma$ \qquad \textcolor{blue}{[$\gamma = nat, \beta = nat$]}}
+    \BinaryInfC{$f:nat \to nat, x: nat \vdash f(fx) : \beta$}
+    \UnaryInfC{$f:nat \to nat \vdash \lambda x:nat.f(fx) : nat \to \beta$ \qquad \textcolor{blue}{[$\alpha = nat \to \beta$]}}
+    \UnaryInfC{$\lambda f:nat \to nat.\lambda x : nat. f(fx) : nat \to nat \to \alpha$}
+\end{prooftree}
+
+\subsection{Recursion and fix}
+Fix for recursion:
+\begin{equation*}
+    \text{fix}(\lambda x:\tau.t) \xrightarrow{\beta} t[\text{fix}(\lambda x:\tau .t) / x]
+\end{equation*}
+Typing rule for fix:
+\begin{prooftree}
+    \AxiomC{$\Gamma \vdash t:\tau \rightarrow \tau$}
+    \UnaryInfC{$\Gamma \vdash \text{fix}\ t:\tau$}
+\end{prooftree}
+
+Define \textbf{let} and \textbf{letrec}, as in Haskell:
+\begin{itemize}
+    \item \textbf{let} $x:\tau = t$ \textbf{in} $t' \asdef (\lambda x:\tau.t')t$
+    \item \textbf{letrec} $x:\tau = t$ \textbf{in} $t' \asdef \text{let}\ x:\tau = \text{fix}(\lambda x:\tau.t)$ \textbf{in} $t'$
+\end{itemize}
+
+Type substitution [nat/ $\alpha,\ \dots$]; [nat/ $\alpha$]$(\lambda x:\alpha .x) = \lambda x:nat.x$. Substitution preserves typing (theorem):
+
+If $\Gamma \vdash t:\sigma$, $\xi$ is a substitution, then $\xi \Gamma \vdash \xi t: \xi \tau$.
+\vskip 0.1in
+Polymorphism is only allowed in let: 
+\begin{equation*}
+    \text{let}\ \text{id} = \lambda x.x\ \text{\textbf{in}}\ \langle \text{id}(1), \text{id} (true) \rangle
+\end{equation*}
+Then \textbf{id} is polymorphic. Hindley-Milner defines the type inference rules.
+$\text{\textbf{let}}\ x = t\ \text{\textbf{in}}\ t'$ is a term:
+\vskip 0.1in
+\textbf{let} $x = t$ \textbf{in} $t' \xrightarrow{\beta} t'[t/x]$
+\vskip 0.1in
+This has the following typing rule for generalization:
+\begin{prooftree}
+    \AxiomC{$\Gamma \vdash t:\sigma$}
+    \AxiomC{$\Gamma, x: \overline{\Gamma}(\sigma) \vdash t': \tau$}
+    \BinaryInfC{$\Gamma \vdash \text{\textbf{let}}\ x = t\ \text{\textbf{in}}\ t' : \tau$}
+\end{prooftree}
+
+and for specialization:
+\begin{prooftree}
+    \AxiomC{$x:\sigma \in \Gamma$}
+    \AxiomC{$\sigma \sqsubseteq \tau$ (this is specialization)}
+    \BinaryInfC{$\Gamma \vdash x:\tau$}
+\end{prooftree}
+
+Finally, the rule for specialization is:
+\vskip 0.1in
+If $x:\alpha \vdash t:\alpha \rightarrow \beta$, then $\overline{\{x:\alpha\}} (\alpha \rightarrow \beta) = \forall \beta.\alpha \rightarrow \beta$
+
+\section{References and Links}
+\begin{itemize}
+    \item \url{http://www.inf.ed.ac.uk/teaching/courses/itcs/} - Edinburgh course on theoretical computer science. What most of this note is based on.
+    \item Michael Sipser Introduction to the Theory of Computation, PWS
+        Publishing (International Thomson Publishing)
+    \item IBenjamin C. Pierce Types and Programming Languages, MIT Pres
+\end{itemize}
+
+\end{document}

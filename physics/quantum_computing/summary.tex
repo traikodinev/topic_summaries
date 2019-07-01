@@ -1,0 +1,135 @@
+\iffalse
+This is a big-ish template that I've been using for years now.
+A lot of the includes are redundant, so if you're reading this and have no idea why
+I've included most things, don't worry - I don't either.
+Also, compiling this (to PDF, for instance) relies on CSS files present on my
+computer (coming from the packages). So it might not look as nice if you
+do it on yours (especially if you don't have all the packages).
+
+Ya'll've been warned.
+\fi
+
+\documentclass{article}
+    \usepackage{subcaption}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{color}
+    \usepackage[dvipsnames]{xcolor}
+    \usepackage{graphicx}
+    \usepackage{caption}
+    \usepackage{float}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage{enumitem}
+    \usepackage[bottom]{footmisc}
+    \usepackage{flexisym}
+    \usepackage{cancel}
+    \usepackage[margin=.8in, tmargin=.3in]{geometry}
+    \renewcommand{\baselinestretch}{1.2}
+    \newcommand{\eps}{\epsilon}
+    \newcommand{\tens}{\otimes}
+
+
+    % Fancy comments from Gutmann
+\newcommand{\comment}[1][]{#1} % Turn on color comments
+% \newcommand{\comment}[1]{} % Turn off color comments
+\newcommand{\todo}[1]{\comment{\textcolor{Red}{\textit{\lbrack TODO: #1 \rbrack}}}}
+\newcommand{\note}[1]{\comment{\textcolor{Blue}{\textit{\lbrack NOTE: #1 \rbrack}}}}
+
+
+    \setlength{\parskip}{\baselineskip}
+    % \newcommand{\l}{\left(}
+    
+    \usepackage{titlesec}
+    \usepackage{physics}
+    
+    \setlength\parindent{0pt}
+    \captionsetup{justification=centering}
+    
+    \title{Quantum Computation and Universal Quantum Computing}
+    \date{\today}
+    \author{Traiko Dinev \textless traiko.dinev@gmail.com\textgreater}
+
+\begin{document}
+\maketitle
+\textit{NOTE: This partially follows Introduction to Quantum Computing, a masters level course at the University of Edinburgh.}
+
+\textit{NOTE: Note this "summary" is NOT a reproduction of the course materials nor is it copied from the corresponding courses. It was entirely written and typeset from scratch.}
+
+\textit{License: Creative Commons public license; See README.md of repository}
+
+\newcommand{\epsplus}{\left( \frac{1}{2} + \eps \right)^{1/2}}
+\newcommand{\epsminus}{\left( \frac{1}{2} - \eps \right)^{1/2}}
+
+\section{Quantum Systems}
+The state of a binary quantum system is described by a vector (a ket) in 2 dimensions:
+\begin{gather}
+    \ket{0} = \begin{pmatrix}1 \\ 0\end{pmatrix} \qquad
+    \ket{1} = \begin{pmatrix}0 \\ 1\end{pmatrix} \\
+\end{gather}
+% 
+Physically these can be any differentiable states. In digital computing we often use thresholding to distinguish the "1"s from the "0"s. Here we use naturally quantized states such as energy levels, spin or (equivalently) polarization. We can extend this to continuous spaces where the discrete quantum states become continuous and sums become integrals. This is the basis of infinite-dimensional Hilbert spaces, which are discussed at the end of this [todo].
+
+\section{Double Slit Experiment and Superposition}
+\todo{Motivate why the system collapses when a measurement is performed, etc.} \todo{Motivate superposition, motivate probabilistic view of QM} 
+\todo{normalization of wavefunctions}
+
+\section{Postulates of Quantum Mechanics in Bra-Ket Notation}
+\textbf{System State}
+The state of a system is captured by its wavefunction $\psi(x)$. A wavefuncton describes the state of the system as a probability distribution over possible states.
+\vskip 0.15in
+
+\textbf{Observables and Wavefunction Collapse}
+Every observable in classical mechanics (e.g. position, velocity, moment) has a corresponding \textbf{operator} in quantum mechanics. The operators correspond to observables. Observables are matrices and are Hermitian.
+\vskip 0.15in
+
+The most basic observable will be for given state $\ket{\alpha}$. If a system is in state $\ket{\psi}$ the inner product $\bra{\alpha}\ket{\psi}$ yields the probability of obtaining $\bra{\alpha}$ when measuing in a binary basis. The observable is the matrix that has eigenvalues $\ket{\alpha}$ and $\ket{\alpha}^\top$, i.e. not-$\ket{\alpha}$.
+
+When we perform a measurement, the wavefunction is \textbf{collapsed} to one of the underlying states we are measuring. We will only consider orthogonal states in this note. So if we measure in the $\ket{0}$, $\ket{1}$ basis, we will collapse \textbf{every quantum state} to either $\ket{0}$ or $\ket{1}$. Different states only differ in the probability between the basis vectors. \textit{This is the essence of quantum mechanics.}
+
+For example, position vectors are orthogonal states, which means we can measure (infinitely-small) the position of a particle. An operator, the observable, will have for eigenvectors (eigen-"states" in QM) each separate position.
+
+\textbf{Superposition} Given the above observation, we can treat quantum states as a superposition of all possible \textbf{orthogonal} eigenstates. We can do all sorts of magic by measuring in clever states. Think of it as de-composing a signal into basic frequencies. \textit{Note: the following is my interpretation}. It's not that the signal itself \textbf{is built this way by nature}, it's a by-product of how we perceive and measure the world. \textit{If we can only treat an object as there and not there, we can treat it as being there AND not there at the same time with some probability.}
+
+\textbf{Time-evolution} Schr{\"o}dinger \todo{add}
+
+\subsection{Example in a discrete system}
+Let's assume we have the state:
+\begin{equation}
+    \ket{\psi} = \alpha_0 \ket{\phi_0} + \dots \alpha_{k - 1} \ket{\phi_{K - 1}}
+\end{equation}
+
+This is a superposition of $K$ different states with varying amplitudes. This corresponds to the state having a distribution according to these amplitudes. Now let's say we have a device that can measure each of those states $\phi_i$. This assumes the states are orthogonal, because otherwise we wouldn't be able to perfectly distinguish those states. Then our \textbf{observable} is:
+
+\begin{equation*}
+    \textbf{M} = \sum_{j = 0}^{K - 1} \lambda_j
+        \ket{\phi_j}\bra{\phi_j} = \text{diag}(\lambda_1, \dots, \lambda_{K - 1})
+\end{equation*}
+
+We take the outer product of the vectors, giving us a diagonal matrix over all states. The $\lambda_j$ correspond to the outcomes, i.e. the 
+\textbf{numbers we read off of the measurement device}. 
+
+Let's consider an example. Set $K = 3$ and assume the following quantum state:
+
+\begin{equation*}
+    \ket{\psi} = \frac{1}{\sqrt{2}}\ket{\phi_0} + \frac{1}{\sqrt{2}} \ket{\phi_2}
+\end{equation*}
+
+The operator for the four states could be:
+\begin{gather*}
+    \textbf{M} = \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & 2 & 0
+    \end{pmatrix} = \\ 1 \times \ket{\phi_0}\bra{\phi_0} - 1 \times \ket{\phi_1}\bra{\phi_1} + 2 \times \ket{\phi_2}\bra{\phi_2}
+\end{gather*}
+
+The average measurement result would be $\bra{\psi} M \ket{\psi}$: 
+\begin{gather*}
+    (\frac{1}{\sqrt{2}}\bra{\phi_0} + \frac{1}{\sqrt{2}} \bra{\phi_2}) \times 1 \times \ket{\phi_0}\bra{\phi_0} - 1 \times \ket{\phi_1}\bra{\phi_1} + 2 \times \ket{\phi_2}\bra{\phi_2} \times (\frac{1}{\sqrt{2}}\ket{\phi_0} + \frac{1}{\sqrt{2}} \ket{\phi_2}) \\
+    = \frac{1}{2} (\ket{\phi_0} \bra{\phi_0} + 2 \times \ket{\phi_2}\bra{\phi_2}) = \frac{3}{2}
+\end{gather*}
+
+To understand why this makes sense, consider that $1/2$ of the time we will observe $\ket{\phi_0}$, i.e. the number (measurement) $1$. The other half we will observe $\ket{\phi_2}$ and $2$. Which adds up to the same figure.
+
+
+\end{document}

@@ -1,0 +1,305 @@
+\documentclass{article}
+    \usepackage{subcaption}
+    \usepackage{amsmath, amssymb}
+    \usepackage{graphicx, float}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage[bottom]{footmisc}
+    \usepackage[margin=.8in, tmargin=.8in]{geometry}
+    \usepackage{esint} % for double line integrals
+
+    \renewcommand{\baselinestretch}{1.2}
+    \newcommand{\eps}{\epsilon}
+    \newcommand{\der}{\partial}
+    \newcommand{\del}{\nabla}
+    \newcommand{\bm}[1]{\mathbf{#1}}
+    \newcommand{\vf}[1]{\vec{\mathbf{#1}}}
+    \newcommand{\norm}{\hat{\bm{n}}}
+    
+    \setlength\parindent{0pt}
+    \captionsetup{justification=centering}
+    
+    \title{Vector Calculus}
+    \date{\today}
+    \author{Traiko Dinev \textless traiko.dinev@gmail.com\textgreater}
+    
+\begin{document}
+\maketitle
+
+\textit{NOTE: This partially follows Engineering Mathematics 2, a second year engineering course at the University of Edinburgh and partially follows MIT's 18.02, Multivariable Calculus.}
+
+\textit{NOTE: Note this "summary" is NOT a reproduction of the course materials nor is it copied from the corresponding courses. It was entirely written and typeset from scratch.}
+
+\textit{License: Creative Commons public license; See README.md of repository}
+
+\textit{NOTE: Images are to be added soon!}
+
+\section{Introduction}
+
+Define the following:
+
+\begin{align*}
+    \del &=
+        \bigg\langle
+            \frac{\partial}{\partial x},
+            \frac{\partial}{\partial y},
+            \frac{\partial}{\partial z}
+        \bigg\rangle
+            && \text{gradient vector} \\
+    \del f &=
+        \bigg\langle
+            \frac{\partial f}{\partial x},
+            \frac{\partial f}{\partial y},
+            \frac{\partial f}{\partial z}
+        \bigg\rangle
+            && \text{vector derivative}\\
+    % 
+    \vf{F} &=
+        \langle
+            f(x, y, z), g(x, y, z), h(x, y, z)
+        \rangle =
+        f(...) \mathbf{i} + g(...)\mathbf{j} + h(...) \mathbf{k}
+            && \text{Vector field}\\
+    % 
+    \del \cdot \vf{F} &=
+        \frac{\der f(x, y, z)}{\der x} +
+        \frac{\der g(x, y, z)}{\der y} +
+        \frac{\der h(x, y, z)}{\der z}
+            && \text{Divergence (dot product)} \\
+    % 
+    \del \times \vf{F} &=
+        \begin{pmatrix}
+            i & j & k \\
+            \frac{\der}{\der x} &
+                \frac{\der}{\der x} &
+                    \frac{\der}{\der x} \\
+            f(...) & g(...) & h(...) 
+        \end{pmatrix}
+            && \text{Curl (cross product)} \\
+\end{align*}
+
+Gradients are just the derivatives in each dimension. Vector fields define a vector at each point in space, as defined by (x, y, z).
+\vskip 0.1in
+Here divergence gives the change in the vector field outwards (source of flux). This can also be defined as the limit of the net flow. Curl defines a rotational field (3D). It is the limit of the path integral. These two are neat relations, but I've never actually had to use them:
+
+\begin{align*}
+    \del \cdot \vf{F} &=
+        \lim_{V \to p} \iint
+            \frac{\vf{F} \cdot \norm}{|V|} dS \\
+    (\del \times \vf{F}) \cdot \norm &=
+        \lim_{A \to 0}\frac{1}{|A|} \int_c \vf{F} \cdot d\vf{r}
+\end{align*}
+
+\section{Double Integrals}
+On to double (and triple) integrals. A double integral is just two single integrals stacked together. These are good to know:
+
+\begin{align*}
+    &\iint_R dA && \text{Area of R} \\
+    &\iint_R \rho\ dA && \text{Mass, where $\rho$ is the density} \\
+    &\bar{x} = \frac{1}{M}\iint_R x\ \rho\ dA && \text{Center of mass} \\
+    &\iint_R r^2\ \rho\ dA && \text{Moment of intertia, $r$ is the distance from the axis}
+\end{align*}
+
+\subsection{Change of Variables}
+Let:
+
+\begin{align*}
+    u &= u(x, y) \\
+    v &= v(x, y) 
+\end{align*}
+
+then:
+\begin{equation*}
+dx dy = \bigg|\frac{\der(u, v)}{\der(x, y)}\bigg|^{-1} du dv = \begin{pmatrix} \frac{\der u}{\der x} & \frac{\der u}{\der y} \\ \frac{\der v}{\der x} & \frac{\der v}{\der y} \end{pmatrix} du dv
+\end{equation*}
+
+This is derived from the following, which is just from the definition of derivatives:
+\begin{equation*}
+    \begin{pmatrix}\Delta u \\ \Delta v\end{pmatrix} \approx 
+        \begin{pmatrix}
+            \frac{\der u}{\der x} & \frac{\der u}{\der y} \\
+             \frac{\der v}{\der x} & \frac{\der v}{\der y}
+        \end{pmatrix}
+        \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+\end{equation*}
+
+Or you could consider a parallelogram.. check out MIT's derivation for this one.
+
+\section{Line Integration}
+Consider a vector field $\vec{\mathbf{F}}$ and a path $c$. This could be a line or some parametric curve as defined by:
+
+\begin{align}
+    x &= x(t) \\
+    y &= y(t) \\
+    \vf{r} &= (x(t), y(t)) \\
+    \frac{d\vec{r}}{dt} &= \langle \frac{dx}{dt}, \frac{dy}{dt} \rangle
+\end{align}
+
+for $t$ between 0 and 1. Or any other limit, but you can always scale it. You could also have more parameters.
+\vskip 0.1in
+Then the line (or path) integral is defined as follows:
+\begin{equation*}
+    \int_c \vf{F} \cdot d\vf{r} =
+        \int_c Mdx + Ndy + Pdz = \int_c \vf{F} \cdot \vf{T} ds
+\end{equation*}
+
+Here $\vf{F} = (M, N, P)$ but the summation is not three separate integrals. Change of variables is needed. $\vf{T}$ is a tangent vector to the curve. $ds$ is the change along the curve.
+\vskip 0.1in
+Perhaps a better way to view this is by considering that work is force times distance: $W = \vf{F} \cdot \Delta \vf{r}$. Note this is a dot product between the force vector and the r defined above. When we sum, we obtain the integral:
+\begin{equation}
+    W = \lim_{i \to \infty} \sum_i \vf{F} \cdot \Delta \vf{r}_i = \int_C \vf{F} \cdot d\vf{r}
+\end{equation}
+
+Now we can break this up using the parametrization of $\vf{r}(t)$ above to arrive at:
+
+\begin{equation}
+    \int_c \vf{F} \cdot \Delta \vf{r} = \int_{0}^{1} (\vf{F} \cdot \frac{d\vf{r}}{dt})\ dt
+\end{equation}
+
+If you want a more rigorous derivation, you can start with the definition of derivatives and take the limit. The above is how we usually calculate line integrals. Note the derivative of r is just a vector, as defined above in (4). So path integrals are in reality just single variable integrals. Neat-o.
+\vskip 0.1in
+We can also do the integral in normal form. As opposed to a dot product with the tangent vector $\vf{T}$ we consider the (perpendicular) normal vector $\norm$. This is defined as the \textbf{flux} of the vector field $\vf{F}$. The flux measures how much "stuff" would be displaced by the vector field for a unit of time. It actually technically measures the force through a curve. Useful for magnetic fields:
+
+\begin{equation}
+    \int_c \vf{F} \cdot \norm\ ds \approx \sum_i (\vf{F} \cdot \norm)\ \Delta \vec{s}_i
+\end{equation}
+
+\textit{TODO: Insert parallelogram picture of normal and tangential path integrals and derivation.}
+
+\subsection{Gradient Field Theorem}
+\textit{A.k.a. the fundamental theorem of (vector) calculus}
+If $\vf{F}$ is a gradient field, i.e. $\vf{F} = \nabla f$.
+
+\begin{equation}
+    \int_c \vf{F} \cdot d\vf{r} = \int \nabla f \cdot d\vf{r} = f(p_1) - f(p_0)
+\end{equation}
+
+where $p_0$ and $p_1$ are the endpoints of the curve $c$. A.k.a Stoke's theorem in 2D. \textit{TODO: add intuition}
+
+\subsection{Green's Theorem}
+This, where $c$ is counter-clockwise:
+
+\begin{equation}
+    \oint_c \vf{F} \cdot d\vf{r} = \iint_R (\nabla \times \vf{F})\ dA
+\end{equation}
+
+where $R$ is the region bounded by $c$.
+\vskip 0.1in
+Green's theorem also works for normal form (flux) integrals. Also known as the divergence theorem when we do in 3D.
+
+\begin{equation}
+    \oint_c \vf{F} \cdot \norm\ ds = \iint_R (\nabla \cdot \vf{F})\ dA
+\end{equation}
+
+\section{Triple Integration}
+Area integrals become volume integrals:
+
+\begin{align*}
+    &\iiint_R dV && \text{volume} \\
+    &dV = dx\ dy\ dz \\
+    &\iiint_R \rho\ dV && \text{Mass} \\
+    &\hat{f} = \frac{1}{\text{Volume}(R)}
+        \iiint_R f\ dV && \text{Center of mass} \\
+    &\iiint_R (\text{distance to axis})^2\delta\ dV
+        && \text{Moment of inertia} \\
+    &\mathbb{I}_z = \iiint_R (x^2 + y^2)^2\delta\ dV
+        && \text{Moment of inertia around z-axis} \\
+\end{align*}
+
+\subsection{Cylindrical Coordinates}
+\textit{TODO: add image}
+
+\begin{align*}
+    x &= \rho\ \cos \phi \\
+    y &= \rho\ \sin \phi \\
+    z &= z \\
+    dV &= r\ dr\ d\theta\ dz
+\end{align*}
+
+\subsection{Spherical Coordinates}
+\textit{TODO: add image}
+
+\begin{align*}
+    x = r\ \cos\theta = \rho \sin\phi\ \cos\theta\\
+    y = r\ \sin\theta = \rho \sin\phi\ \sin\theta\\
+    z = \rho \cos\theta \\
+    dV = \rho^2 \sin\phi\ d\rho\ d\phi\ d\theta
+\end{align*}
+
+\section{Surface Integrals}
+\textit{TODO: add image}
+Natural extension to normal integration (see path integral) to three dimensions. This gives us the amount of "stuff" that goes through a patch in 3D. A patch (surface) would be the equivalent of a parametric curve in 2D.
+
+\begin{equation}
+    \iint_S \vf{F} \cdot d\vf{S} = \iint_S \vf{F} \cdot \norm\ dS
+\end{equation}
+
+Here $d\vf{S} = \norm\ dS$. Now these are a pain to calculate, but there are shortcuts:
+
+\subsection{On a sphere}
+\begin{equation*}
+    dS = r^2\ \sin\phi\ d\phi\ d\theta 
+\end{equation*}
+
+Here the normal vector is $\norm = \pm \frac{1}{a} \langle x, y, z \rangle$.
+
+\subsection{Horizontal plane}
+Three separate cases, we will consider when $z = a$. Hence:
+\begin{align*}
+    z &= a \\
+    \norm &= \pm \mathbf{\hat{k}} \\
+    dS &= dx\ dy
+\end{align*}
+
+\subsection{Cylinder of $r = a$ centered on the z axis}
+\begin{align*}
+    \norm &= \pm \langle x, y, 0, \rangle \frac{1}{a} \\
+    dS &= a\ dz\ d\theta
+\end{align*}
+
+\subsection{Graph of function}
+\begin{align*}
+    z &= f(x, y) \\
+    \norm\ dS &= \pm \langle -f_x, -f_y, 1\rangle\ dx\ dy
+\end{align*}
+
+\subsection{Parametric Surface}
+\begin{align*}
+    x &= x(u, v) \\
+    y &= y(u, v) \\
+    z &= z(u, v) \\
+    \norm\ dS &= \pm
+        \bigg(\frac{\der \vf{r}}{\der u}
+            \times \frac{\der \vf{r}}{\der v} \bigg) du\ dv
+\end{align*}
+
+here $\times$ is a cross product. Why? Stay tuned.. I might add a derivation. Check MIT's course.
+
+\subsection{Slanted plane with normal $\mathbf{\hat{N}}$}
+\textit{TODO}
+
+\section{Divergence Theorem}
+This is the 3D analogue of Green's theorem for flux in 2D. If:
+
+\begin{itemize}
+    \item $S$ encloses $D$ in space, where $S$ is a closed surface
+    \item $\norm$ is the normal vector pointing
+        \textit{outwards} and $\vf{F}$ is defined and differentiable within $D$
+\end{itemize}
+
+Then:
+\begin{equation}
+    \oiint_S \vf{F} \cdot d\vf{S} = \iiint_D \nabla \cdot \vf{F}\ dV
+\end{equation}
+
+This means the total stuff escaping $S$ is the net sum of all the sources within it.
+
+\section{Stoke's Theorem}
+If $C$ is a closed curve and $S$ is any surface bounded by C.
+
+\begin{equation}
+    \oint_C \vf{F} s\vf{r} = \iint_S (\nabla \times \vf{F}) \cdot \norm \ dS
+\end{equation}
+
+If I walk along $C$ with $S$ to my left, then $\norm$ is pointing up.
+
+\end{document}

@@ -1,0 +1,715 @@
+
+@article{mnih_playing_2013,
+	title = {Playing Atari with Deep Reinforcement Learning},
+	url = {http://arxiv.org/abs/1312.5602},
+	abstract = {We present the first deep learning model to successfully learn control policies directly from high-dimensional sensory input using reinforcement learning. The model is a convolutional neural network, trained with a variant of Q-learning, whose input is raw pixels and whose output is a value function estimating future rewards. We apply our method to seven Atari 2600 games from the Arcade Learning Environment, with no adjustment of the architecture or learning algorithm. We find that it outperforms all previous approaches on six of the games and surpasses a human expert on three of them.},
+	journaltitle = {{arXiv}:1312.5602 [cs]},
+	author = {Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Graves, Alex and Antonoglou, Ioannis and Wierstra, Daan and Riedmiller, Martin},
+	urldate = {2017-09-22},
+	date = {2013-12-19},
+	eprinttype = {arxiv},
+	eprint = {1312.5602},
+	keywords = {Computer Science - Learning},
+	file = {arXiv\:1312.5602 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/9GMAYXWB/Mnih et al. - 2013 - Playing Atari with Deep Reinforcement Learning.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/3W6KIDUV/1312.html:text/html}
+}
+
+@article{wang_dueling_2015,
+	title = {Dueling Network Architectures for Deep Reinforcement Learning},
+	url = {http://arxiv.org/abs/1511.06581},
+	abstract = {In recent years there have been many successes of using deep representations in reinforcement learning. Still, many of these applications use conventional architectures, such as convolutional networks, {LSTMs}, or auto-encoders. In this paper, we present a new neural network architecture for model-free reinforcement learning. Our dueling network represents two separate estimators: one for the state value function and one for the state-dependent action advantage function. The main benefit of this factoring is to generalize learning across actions without imposing any change to the underlying reinforcement learning algorithm. Our results show that this architecture leads to better policy evaluation in the presence of many similar-valued actions. Moreover, the dueling architecture enables our {RL} agent to outperform the state-of-the-art on the Atari 2600 domain.},
+	journaltitle = {{arXiv}:1511.06581 [cs]},
+	author = {Wang, Ziyu and Schaul, Tom and Hessel, Matteo and van Hasselt, Hado and Lanctot, Marc and de Freitas, Nando},
+	urldate = {2017-09-22},
+	date = {2015-11-20},
+	eprinttype = {arxiv},
+	eprint = {1511.06581},
+	keywords = {Computer Science - Learning},
+	file = {arXiv\:1511.06581 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/8DVNI3DF/Wang et al. - 2015 - Dueling Network Architectures for Deep Reinforceme.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/X4S8WYTU/1511.html:text/html}
+}
+
+@article{silver_deterministic_????,
+	title = {Deterministic Policy Gradient Algorithms},
+	url = {https://deepmind.com/research/publications/deterministic-policy-gradient-algorithms/},
+	journaltitle = {{DeepMind}},
+	author = {Silver, David and Lever, Guy and Hess, Nicholas and Degris, Thomas and Wierstra, Daan and Riedmiller, Martin},
+	urldate = {2017-09-22},
+	file = {Deterministic Policy Gradient Algorithms.pdf:/home/include4eto/fast_storage/library/zotero_library/storage/JLSNAUGV/Deterministic Policy Gradient Algorithms.pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/SCGKM3C4/deterministic-policy-gradient-algorithms.html:text/html}
+}
+
+@article{munos_safe_2016,
+	title = {Safe and Efficient Off-Policy Reinforcement Learning},
+	url = {http://arxiv.org/abs/1606.02647},
+	abstract = {In this work, we take a fresh look at some old and new algorithms for off-policy, return-based reinforcement learning. Expressing these in a common form, we derive a novel algorithm, Retrace(\${\textbackslash}lambda\$), with three desired properties: (1) it has low variance; (2) it safely uses samples collected from any behaviour policy, whatever its degree of "off-policyness"; and (3) it is efficient as it makes the best use of samples collected from near on-policy behaviour policies. We analyze the contractive nature of the related operator under both off-policy policy evaluation and control settings and derive online sample-based algorithms. We believe this is the first return-based off-policy control algorithm converging a.s. to \$Q{\textasciicircum}*\$ without the {GLIE} assumption (Greedy in the Limit with Infinite Exploration). As a corollary, we prove the convergence of Watkins' Q(\${\textbackslash}lambda\$), which was an open problem since 1989. We illustrate the benefits of Retrace(\${\textbackslash}lambda\$) on a standard suite of Atari 2600 games.},
+	journaltitle = {{arXiv}:1606.02647 [cs, stat]},
+	author = {Munos, Rémi and Stepleton, Tom and Harutyunyan, Anna and Bellemare, Marc G.},
+	urldate = {2017-09-22},
+	date = {2016-06-08},
+	eprinttype = {arxiv},
+	eprint = {1606.02647},
+	keywords = {Statistics - Machine Learning, Computer Science - Learning, Computer Science - Artificial Intelligence},
+	file = {arXiv\:1606.02647 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/IREISPAW/Munos et al. - 2016 - Safe and Efficient Off-Policy Reinforcement Learni.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/L7GMG2MI/1606.html:text/html}
+}
+
+@article{schulman_trust_2015,
+	title = {Trust Region Policy Optimization},
+	url = {http://arxiv.org/abs/1502.05477},
+	abstract = {We describe an iterative procedure for optimizing policies, with guaranteed monotonic improvement. By making several approximations to the theoretically-justified procedure, we develop a practical algorithm, called Trust Region Policy Optimization ({TRPO}). This algorithm is similar to natural policy gradient methods and is effective for optimizing large nonlinear policies such as neural networks. Our experiments demonstrate its robust performance on a wide variety of tasks: learning simulated robotic swimming, hopping, and walking gaits; and playing Atari games using images of the screen as input. Despite its approximations that deviate from the theory, {TRPO} tends to give monotonic improvement, with little tuning of hyperparameters.},
+	journaltitle = {{arXiv}:1502.05477 [cs]},
+	author = {Schulman, John and Levine, Sergey and Moritz, Philipp and Jordan, Michael I. and Abbeel, Pieter},
+	urldate = {2017-09-22},
+	date = {2015-02-19},
+	eprinttype = {arxiv},
+	eprint = {1502.05477},
+	keywords = {Computer Science - Learning},
+	file = {arXiv\:1502.05477 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/99NQ4XEF/Schulman et al. - 2015 - Trust Region Policy Optimization.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/PV2Y7T2N/1502.html:text/html}
+}
+
+@article{mnih_asynchronous_2016,
+	title = {Asynchronous Methods for Deep Reinforcement Learning},
+	url = {http://arxiv.org/abs/1602.01783},
+	abstract = {We propose a conceptually simple and lightweight framework for deep reinforcement learning that uses asynchronous gradient descent for optimization of deep neural network controllers. We present asynchronous variants of four standard reinforcement learning algorithms and show that parallel actor-learners have a stabilizing effect on training allowing all four methods to successfully train neural network controllers. The best performing method, an asynchronous variant of actor-critic, surpasses the current state-of-the-art on the Atari domain while training for half the time on a single multi-core {CPU} instead of a {GPU}. Furthermore, we show that asynchronous actor-critic succeeds on a wide variety of continuous motor control problems as well as on a new task of navigating random 3D mazes using a visual input.},
+	journaltitle = {{arXiv}:1602.01783 [cs]},
+	author = {Mnih, Volodymyr and Badia, Adrià Puigdomènech and Mirza, Mehdi and Graves, Alex and Lillicrap, Timothy P. and Harley, Tim and Silver, David and Kavukcuoglu, Koray},
+	urldate = {2017-09-22},
+	date = {2016-02-04},
+	eprinttype = {arxiv},
+	eprint = {1602.01783},
+	keywords = {Computer Science - Learning},
+	file = {arXiv\:1602.01783 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/6CDZRC8R/Mnih et al. - 2016 - Asynchronous Methods for Deep Reinforcement Learni.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/AIA825FD/1602.html:text/html}
+}
+
+@article{higgins_darla:_2017,
+	title = {{DARLA}: Improving Zero-Shot Transfer in Reinforcement Learning},
+	url = {http://arxiv.org/abs/1707.08475},
+	shorttitle = {{DARLA}},
+	abstract = {Domain adaptation is an important open problem in deep reinforcement learning ({RL}). In many scenarios of interest data is hard to obtain, so agents may learn a source policy in a setting where data is readily available, with the hope that it generalises well to the target domain. We propose a new multi-stage {RL} agent, {DARLA} ({DisentAngled} Representation Learning Agent), which learns to see before learning to act. {DARLA}'s vision is based on learning a disentangled representation of the observed environment. Once {DARLA} can see, it is able to acquire source policies that are robust to many domain shifts - even with no access to the target domain. {DARLA} significantly outperforms conventional baselines in zero-shot domain adaptation scenarios, an effect that holds across a variety of {RL} environments (Jaco arm, {DeepMind} Lab) and base {RL} algorithms ({DQN}, A3C and {EC}).},
+	journaltitle = {{arXiv}:1707.08475 [cs, stat]},
+	author = {Higgins, Irina and Pal, Arka and Rusu, Andrei A. and Matthey, Loic and Burgess, Christopher P. and Pritzel, Alexander and Botvinick, Matthew and Blundell, Charles and Lerchner, Alexander},
+	urldate = {2018-02-01},
+	date = {2017-07-26},
+	eprinttype = {arxiv},
+	eprint = {1707.08475},
+	keywords = {Statistics - Machine Learning, Computer Science - Learning, Computer Science - Artificial Intelligence},
+	file = {arXiv\:1707.08475 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/LAJMUXRT/Higgins et al. - 2017 - DARLA Improving Zero-Shot Transfer in Reinforceme.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/QN9SSUTQ/1707.html:text/html}
+}
+
+@article{silver_mastering_2016,
+	title = {Mastering the game of Go with deep neural networks and tree search},
+	volume = {529},
+	rights = {2016 Nature Publishing Group},
+	issn = {1476-4687},
+	url = {https://www.nature.com/articles/nature16961},
+	doi = {10.1038/nature16961},
+	abstract = {{\textless}p{\textgreater}The victory in 1997 of the chess-playing computer Deep Blue in a six-game series against the then world champion Gary Kasparov was seen as a significant milestone in the development of artificial intelligence. An even greater challenge remained — the ancient game of Go. Despite decades of refinement, until recently the strongest computers were still playing Go at the level of human amateurs. Enter {AlphaGo}. Developed by Google {DeepMind}, this program uses deep neural networks to mimic expert players, and further improves its performance by learning from games played against itself. {AlphaGo} has achieved a 99\% win rate against the strongest other Go programs, and defeated the reigning European champion Fan Hui 50 in a tournament match. This is the first time that a computer program has defeated a human professional player in even games, on a full, 19 x 19 board, in even games with no handicap.{\textless}/p{\textgreater}},
+	pages = {484},
+	number = {7587},
+	journaltitle = {Nature},
+	author = {Silver, David and Huang, Aja and Maddison, Chris J. and Guez, Arthur and Sifre, Laurent and Driessche, George van den and Schrittwieser, Julian and Antonoglou, Ioannis and Panneershelvam, Veda and Lanctot, Marc and Dieleman, Sander and Grewe, Dominik and Nham, John and Kalchbrenner, Nal and Sutskever, Ilya and Lillicrap, Timothy and Leach, Madeleine and Kavukcuoglu, Koray and Graepel, Thore and Hassabis, Demis},
+	urldate = {2018-02-01},
+	date = {2016-01},
+	file = {AlphaGoNaturePaper.pdf:/home/include4eto/fast_storage/library/zotero_library/storage/UTIEQ2VV/AlphaGoNaturePaper.pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/KIKXMNF5/nature16961.html:text/html}
+}
+
+@article{mnih_human-level_2015,
+	title = {Human-level control through deep reinforcement learning},
+	volume = {518},
+	rights = {2015 Nature Publishing Group},
+	issn = {1476-4687},
+	url = {https://www.nature.com/articles/nature14236},
+	doi = {10.1038/nature14236},
+	abstract = {{\textless}p{\textgreater}An artificial agent is developed that learns to playa diverse range of classic Atari 2600 computer games directly from sensory experience, achieving aperformance comparable to that of an expert human player; this work paves the way to building general-purpose learning algorithms that bridge the divide between perception and action.{\textless}/p{\textgreater}},
+	pages = {529},
+	number = {7540},
+	journaltitle = {Nature},
+	author = {Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Rusu, Andrei A. and Veness, Joel and Bellemare, Marc G. and Graves, Alex and Riedmiller, Martin and Fidjeland, Andreas K. and Ostrovski, Georg and Petersen, Stig and Beattie, Charles and Sadik, Amir and Antonoglou, Ioannis and King, Helen and Kumaran, Dharshan and Wierstra, Daan and Legg, Shane and Hassabis, Demis},
+	urldate = {2018-02-01},
+	date = {2015-02},
+	file = {DQNNaturePaper.pdf:/home/include4eto/fast_storage/library/zotero_library/storage/FLFU6DMX/DQNNaturePaper.pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/KRBXT3HV/nature14236.html:text/html}
+}
+
+@article{taylor_transfer_2009,
+	title = {Transfer Learning for Reinforcement Learning Domains: A Survey},
+	volume = {10},
+	issn = {{ISSN} 1533-7928},
+	url = {http://www.jmlr.org/papers/v10/taylor09a.html},
+	shorttitle = {Transfer Learning for Reinforcement Learning Domains},
+	pages = {1633--1685},
+	issue = {Jul},
+	journaltitle = {Journal of Machine Learning Research},
+	author = {Taylor, Matthew E. and Stone, Peter},
+	urldate = {2018-02-04},
+	date = {2009},
+	file = {Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/8CMUB7LS/Taylor and Stone - 2009 - Transfer Learning for Reinforcement Learning Domai.pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/NRLUANKD/taylor09a.html:text/html}
+}
+
+@article{andrychowicz_hindsight_2017,
+	title = {Hindsight Experience Replay},
+	url = {http://arxiv.org/abs/1707.01495},
+	abstract = {Dealing with sparse rewards is one of the biggest challenges in Reinforcement Learning ({RL}). We present a novel technique called Hindsight Experience Replay which allows sample-efficient learning from rewards which are sparse and binary and therefore avoid the need for complicated reward engineering. It can be combined with an arbitrary off-policy {RL} algorithm and may be seen as a form of implicit curriculum. We demonstrate our approach on the task of manipulating objects with a robotic arm. In particular, we run experiments on three different tasks: pushing, sliding, and pick-and-place, in each case using only binary rewards indicating whether or not the task is completed. Our ablation studies show that Hindsight Experience Replay is a crucial ingredient which makes training possible in these challenging environments. We show that our policies trained on a physics simulation can be deployed on a physical robot and successfully complete the task.},
+	journaltitle = {{arXiv}:1707.01495 [cs]},
+	author = {Andrychowicz, Marcin and Wolski, Filip and Ray, Alex and Schneider, Jonas and Fong, Rachel and Welinder, Peter and {McGrew}, Bob and Tobin, Josh and Abbeel, Pieter and Zaremba, Wojciech},
+	urldate = {2018-02-04},
+	date = {2017-07-05},
+	eprinttype = {arxiv},
+	eprint = {1707.01495},
+	keywords = {Computer Science - Learning, Computer Science - Artificial Intelligence, Computer Science - Neural and Evolutionary Computing, Computer Science - Robotics},
+	file = {arXiv\:1707.01495 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/RAJJ2KWD/Andrychowicz et al. - 2017 - Hindsight Experience Replay.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/FG75GCL7/1707.html:text/html}
+}
+
+@article{foerster_learning_2017,
+	title = {Learning with Opponent-Learning Awareness},
+	url = {http://arxiv.org/abs/1709.04326},
+	abstract = {Multi-agent settings are quickly gathering importance in machine learning. Beyond a plethora of recent work on deep multi-agent reinforcement learning, hierarchical reinforcement learning, generative adversarial networks and decentralized optimization can all be seen as instances of this setting. However, the presence of multiple learning agents in these settings renders the training problem non-stationary and often leads to unstable training or undesired final results. We present Learning with Opponent-Learning Awareness ({LOLA}), a method that reasons about the anticipated learning of the other agents. The {LOLA} learning rule includes an additional term that accounts for the impact of the agent's policy on the anticipated parameter update of the other agents. We show that the {LOLA} update rule can be efficiently calculated using an extension of the likelihood ratio policy gradient update, making the method suitable for model-free {RL}. This method thus scales to large parameter and input spaces and nonlinear function approximators. Preliminary results show that the encounter of two {LOLA} agents leads to the emergence of tit-for-tat and therefore cooperation in the iterated prisoners' dilemma ({IPD}), while independent learning does not. In this domain, {LOLA} also receives higher payouts compared to a naive learner, and is robust against exploitation by higher order gradient-based methods. Applied to infinitely repeated matching pennies, {LOLA} agents converge to the Nash equilibrium. In a round robin tournament we show that {LOLA} agents can successfully shape the learning of a range of multi-agent learning algorithms from literature, resulting in the highest average returns on the {IPD}. We also apply {LOLA} to a grid world task with an embedded social dilemma using deep recurrent policies. Again, by considering the learning of the other agent, {LOLA} agents learn to cooperate out of selfish interests.},
+	journaltitle = {{arXiv}:1709.04326 [cs]},
+	author = {Foerster, Jakob N. and Chen, Richard Y. and Al-Shedivat, Maruan and Whiteson, Shimon and Abbeel, Pieter and Mordatch, Igor},
+	urldate = {2018-02-04},
+	date = {2017-09-13},
+	eprinttype = {arxiv},
+	eprint = {1709.04326},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computer Science and Game Theory},
+	file = {arXiv\:1709.04326 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/X6WE3PWL/Foerster et al. - 2017 - Learning with Opponent-Learning Awareness.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/QFPLSLUD/1709.html:text/html}
+}
+
+@inproceedings{selfridge_training_1985,
+	location = {San Francisco, {CA}, {USA}},
+	title = {Training and Tracking in Robotics},
+	isbn = {978-0-934613-02-6},
+	url = {http://dl.acm.org/citation.cfm?id=1625135.1625265},
+	series = {{IJCAI}'85},
+	abstract = {We explore the use of learning schemes in training and adapting performance on simple coordination tasks. The tasks are 1-D pole balancing. Several programs incorporating learning have already achieved this (1, S, 8): the problem is to move a cart along a short piece of track to at to keep a pole balanced on its end; the pole is hinged to the cart at its bottom, and the cart is moved either to the left or to the right by a force of constant magnitude. The form of the task considered here, after (3), involves a genuinely difficult credit-assignment problem. We use a learning scheme previously developed and analysed (1, 7) to achieve performance through reinforcement, and extend it to include changing and new requirements. For example, the length or mast of the pole can change, the bias of the force, its strength, and so on; and the system can be tasked to avoid certain regions altogether. In this way we explore the learning system's ability to adapt to changes and to profit from a selected training sequence, both of which are of obvious utility in practical robotics applications. The results described here were obtained using a computer simulation of the pole-balancing problem. A movie will be shown of the performance of the system under the various requirements and tasks.},
+	pages = {670--672},
+	booktitle = {Proceedings of the 9th International Joint Conference on Artificial Intelligence - Volume 1},
+	publisher = {Morgan Kaufmann Publishers Inc.},
+	author = {Selfridge, Oliver G. and Sutton, Richard S. and Barto, Andrew G.},
+	urldate = {2018-02-08},
+	date = {1985},
+	file = {paper_129a.pdf:/home/include4eto/fast_storage/library/zotero_library/storage/D7YE6W7E/paper_129a.pdf:application/pdf}
+}
+
+@article{a._rummery_-line_1994,
+	title = {On-Line Q-Learning Using Connectionist Systems},
+	abstract = {Reinforcement learning algorithms are a powerful machine learning technique. However, much of the work on these algorithms has been developed with regard to discrete finite-state Markovian problems, which is too restrictive for many real-world environments. Therefore, it is desirable to extend these methods to high dimensional continuous state-spaces, which requires the use of function approximation to generalise the information learnt by the system. In this report, the use of back-propagation neural networks (Rumelhart, Hinton and Williams 1986) is considered in this context. We consider a number of different algorithms based around Q-Learning (Watkins 1989) combined with the Temporal Difference algorithm (Sutton 1988), including a new algorithm (Modified Connectionist Q-Learning), and Q() (Peng and Williams 1994). In addition, we present algorithms for applying these updates on-line during trials, unlike backward replay used by Lin (1993) that requires waiting until the end of each t...},
+	journaltitle = {Technical Report {CUED}/F-{INFENG}/{TR} 166},
+	author = {A. Rummery, G and Niranjan, Mahesan},
+	date = {1994-11-04}
+}
+
+@article{sutton_learning_1988,
+	title = {Learning to predict by the methods of temporal differences},
+	volume = {3},
+	issn = {0885-6125, 1573-0565},
+	url = {https://link.springer.com/article/10.1007/BF00115009},
+	doi = {10.1007/BF00115009},
+	abstract = {This article introduces a class of incremental learning procedures specialized for prediction-that is, for using past experience with an incompletely known system to predict its future behavior. Whereas conventional prediction-learning methods assign credit by means of the difference between predicted and actual outcomes, the new methods assign credit by means of the difference between temporally successive predictions. Although such temporal-difference methods have been used in Samuel's checker player, Holland's bucket brigade, and the author's Adaptive Heuristic Critic, they have remained poorly understood. Here we prove their convergence and optimality for special cases and relate them to supervised-learning methods. For most real-world prediction problems, temporal-difference methods require less memory and less peak computation than conventional methods and they produce more accurate predictions. We argue that most problems to which supervised learning is currently applied are really prediction problems of the sort to which temporal-difference methods can be applied to advantage.},
+	pages = {9--44},
+	number = {1},
+	journaltitle = {Machine Learning},
+	shortjournal = {Mach Learn},
+	author = {Sutton, Richard S.},
+	urldate = {2018-02-10},
+	date = {1988-08-01},
+	langid = {english},
+	file = {Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/GVCLG64C/Sutton - 1988 - Learning to predict by the methods of temporal dif.pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/V5YEAUD9/BF00115009.html:text/html}
+}
+
+@book{sutton_reinforcement_1998,
+	title = {Reinforcement Learning: An Introduction},
+	isbn = {978-0-262-19398-6},
+	shorttitle = {Reinforcement Learning},
+	abstract = {Richard Sutton and Andrew Barto provide a clear and simple account of the key ideas and algorithms of reinforcement learning. Their discussion ranges from the history of the field's intellectual foundations to the most recent developments and applications. Reinforcement learning, one of the most active research areas in artificial intelligence, is a computational approach to learning whereby an agent tries to maximize the total amount of reward it receives when interacting with a complex, uncertain environment. In Reinforcement Learning, Richard Sutton and Andrew Barto provide a clear and simple account of the key ideas and algorithms of reinforcement learning. Their discussion ranges from the history of the field's intellectual foundations to the most recent developments and applications. The only necessary mathematical background is familiarity with elementary concepts of probability. The book is divided into three parts. Part I defines the reinforcement learning problem in terms of Markov decision processes. Part {II} provides basic solution methods: dynamic programming, Monte Carlo methods, and temporal-difference learning. Part {III} presents a unified view of the solution methods and incorporates artificial neural networks, eligibility traces, and planning; the two final chapters present case studies and consider the future of reinforcement learning.},
+	pagetotal = {356},
+	publisher = {{MIT} Press},
+	author = {Sutton, Richard S. and Barto, Andrew G.},
+	date = {1998},
+	langid = {english},
+	note = {Google-Books-{ID}: {CAFR}6IBF4xYC},
+	keywords = {Computers / Intelligence ({AI}) \& Semantics}
+}
+
+@article{asada_vision-based_1994,
+	title = {Vision-Based Behavior Acquisition for a Shooting Robot by Using a Reinforcement Learning},
+	doi = {10.1109/VL.1994.365601},
+	abstract = {We propose a method which acquires a purposive behavior for a mobile robot to shoot a ball into the goal by using a vision-based reinforcement learning. A mobile robot (an agent) does not need to know any parameters of the 3-D environment or its kinematics/dynamics. Information about the changes of the environment is only the image captured from a single {TV} camera mounted on the robot. An action-value function in terms of state is to be learned. Image positions of a ball and a goal are used as a state variable which shows the effect of an action previously taken. After the learning process, the robot tries to carry a ball near the goal and to shoot it. Both computer simulation and real robot experiments are shown, and discussion on the role of vision in the context of the vision-based reinforcement learning is given.},
+	journaltitle = {Proc {IAPR}/{IEEE} Workshop on Visual Behaviors},
+	author = {Asada, Minoru and Noda, Shoichi and Tawaratsumida, Sukoya and Hosoda, Koh},
+	date = {1994-09-11}
+}
+
+@article{kearns_near-optimal_2002,
+	title = {Near-Optimal Reinforcement Learning in Polynomial Time},
+	volume = {49},
+	issn = {0885-6125, 1573-0565},
+	url = {https://link.springer.com/article/10.1023/A:1017984413808},
+	doi = {10.1023/A:1017984413808},
+	abstract = {We present new algorithms for reinforcement learning and prove that they have polynomial bounds on the resources required to achieve near-optimal return in general Markov decision processes. After observing that the number of actions required to approach the optimal return is lower bounded by the mixing time T of the optimal policy (in the undiscounted case) or by the horizon time T (in the discounted case), we then give algorithms requiring a number of actions and total computation time that are only polynomial in T and the number of states and actions, for both the undiscounted and discounted cases. An interesting aspect of our algorithms is their explicit handling of the Exploration-Exploitation trade-off.},
+	pages = {209--232},
+	number = {2},
+	journaltitle = {Machine Learning},
+	shortjournal = {Machine Learning},
+	author = {Kearns, Michael and Singh, Satinder},
+	urldate = {2018-02-10},
+	date = {2002-11-01},
+	langid = {english},
+	file = {Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/9FDWXV6Y/Kearns and Singh - 2002 - Near-Optimal Reinforcement Learning in Polynomial .pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/NJI26VAS/A1017984413808.html:text/html}
+}
+
+@article{asadi_effective_????,
+	title = {Effective Control Knowledge Transfer Through Learning Skill and Representation Hierarchies},
+	url = {http://www.aaai.org/Library/IJCAI/2007/ijcai07-331.php},
+	author = {Asadi, Mehran and Huber, Manfred},
+	urldate = {2018-02-10},
+	file = {Effective Control Knowledge Transfer Through Learning Skill and Representation Hierarchies:/home/include4eto/fast_storage/library/zotero_library/storage/JW7PWHNT/ijcai07-331.html:text/html;IJCAI07-331.pdf:/home/include4eto/fast_storage/library/zotero_library/storage/LNQTW6CI/IJCAI07-331.pdf:application/pdf}
+}
+
+@article{mehta_transfer_2008,
+	title = {Transfer in variable-reward hierarchical reinforcement learning},
+	volume = {73},
+	issn = {0885-6125, 1573-0565},
+	url = {https://link.springer.com/article/10.1007/s10994-008-5061-y},
+	doi = {10.1007/s10994-008-5061-y},
+	abstract = {Transfer learning seeks to leverage previously learned tasks to achieve faster learning in a new task. In this paper, we consider transfer learning in the context of related but distinct Reinforcement Learning ({RL}) problems. In particular, our {RL} problems are derived from Semi-Markov Decision Processes ({SMDPs}) that share the same transition dynamics but have different reward functions that are linear in a set of reward features. We formally define the transfer learning problem in the context of {RL} as learning an efficient algorithm to solve any {SMDP} drawn from a fixed distribution after experiencing a finite number of them. Furthermore, we introduce an online algorithm to solve this problem, Variable-Reward Reinforcement Learning ({VRRL}), that compactly stores the optimal value functions for several {SMDPs}, and uses them to optimally initialize the value function for a new {SMDP}. We generalize our method to a hierarchical {RL} setting where the different {SMDPs} share the same task hierarchy. Our experimental results in a simplified real-time strategy domain show that significant transfer learning occurs in both flat and hierarchical settings. Transfer is especially effective in the hierarchical setting where the overall value functions are decomposed into subtask value functions which are more widely amenable to transfer across different {SMDPs}.},
+	pages = {289},
+	number = {3},
+	journaltitle = {Machine Learning},
+	shortjournal = {Mach Learn},
+	author = {Mehta, Neville and Natarajan, Sriraam and Tadepalli, Prasad and Fern, Alan},
+	urldate = {2018-02-10},
+	date = {2008-12-01},
+	langid = {english},
+	file = {Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/SBLA4666/Mehta et al. - 2008 - Transfer in variable-reward hierarchical reinforce.pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/7J85TRHL/s10994-008-5061-y.html:text/html}
+}
+
+@report{perkins_using_1999,
+	title = {Using Options for Knowledge Transfer in Reinforcement Learning},
+	abstract = {One of the original motivations for the use of temporally extended actions,  or options, in reinforcement learning was to enable the transfer of  learned value functions or policies to new problems. Many experimenters  have used options to speed learning on single problems, but options have  not been studied in depth as a tool for transfer.  In this paper we introduce a formal model of a learning problem as a  distribution of Markov Decision Problems ({MDPs}). Each {MDP} represents a  task the agent will have to solve. Our model can also be viewed as a partially  observable Markov decision problem ({POMDP}), with a special structure that  we describe. We study two learning algorithms, one which keeps a single  value function that generalizes across tasks, and an incremental {POMDPinspired}  method maintaining separate value functions for each task.  We evaluate the learning algorithms on an extension of the Mountain  Car domain, in terms of both learning speed and asymptotic performance.  Empi...},
+	author = {Perkins, Theodore J. and Precup, Doina},
+	date = {1999},
+	file = {Citeseer - Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/QSGFPHJE/Perkins and Precup - 1999 - Using Options for Knowledge Transfer in Reinforcem.pdf:application/pdf;Citeseer - Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/YQ7WFGFA/summary.html:text/html}
+}
+
+@misc{openai_gym_2016,
+        Author = {Greg Brockman and Vicki Cheung and Ludwig Pettersson and Jonas Schneider and John Schulman and Jie Tang and Wojciech Zaremba},
+        Title = {OpenAI Gym},
+        Year = {2016},
+        Eprint = {arXiv:1606.01540},
+}
+
+@article{barto_neuronlike_1983,
+  title={Neuronlike adaptive elements that can solve difficult learning control problems},
+  author={Barto, Andrew G and Sutton, Richard S and Anderson, Charles W},
+  journal={IEEE transactions on systems, man, and cybernetics},
+  number={5},
+  pages={834--846},
+  year={1983},
+  publisher={IEEE}
+}
+
+@thesis{moore_efficient_1990,
+  title={Efficient memory-based learning for robot control},
+  author={Moore, Andrew William},
+  year={1990},
+  institution = {University of Cambridge},
+}
+@article{DBLP:journals/corr/HasseltGS15,
+  author    = {Hado van Hasselt and
+               Arthur Guez and
+               David Silver},
+  title     = {Deep Reinforcement Learning with Double Q-learning},
+  journal   = {CoRR},
+  volume    = {abs/1509.06461},
+  year      = {2015},
+  url       = {http://arxiv.org/abs/1509.06461},
+  archivePrefix = {arXiv},
+  eprint    = {1509.06461},
+  timestamp = {Wed, 07 Jun 2017 14:40:43 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/HasseltGS15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{kingma_adam:_2014,
+	title = {Adam: A Method for Stochastic Optimization},
+	url = {http://arxiv.org/abs/1412.6980},
+	shorttitle = {Adam},
+	abstract = {We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss {AdaMax}, a variant of Adam based on the infinity norm.},
+	journaltitle = {{arXiv}:1412.6980 [cs]},
+	author = {Kingma, Diederik P. and Ba, Jimmy},
+	urldate = {2017-10-25},
+	date = {2014-12-22},
+	eprinttype = {arxiv},
+	eprint = {1412.6980},
+	keywords = {Computer Science - Learning},
+	file = {arXiv\:1412.6980 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/FL74CP75/Kingma and Ba - 2014 - Adam A Method for Stochastic Optimization.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/H79LHCMV/1412.html:text/html}
+}
+
+@misc{chollet2015keras,
+  title={Keras},
+  author={Chollet, Fran\c{c}ois and others},
+  year={2015},
+  publisher={GitHub},
+  howpublished={\url{https://github.com/keras-team/keras}},
+}
+
+@online{noauthor_kinematics_nodate,
+	title = {Kinematics \& Optimisation — {IPAB}},
+	url = {http://wcms.inf.ed.ac.uk/ipab/slmc/research/EXOTica},
+	urldate = {2018-10-20},
+	file = {Kinematics & Optimisation — IPAB:/home/include4eto/fast_storage/library/zotero_library/storage/3UMZFUH5/EXOTica.html:text/html}
+}
+
+@online{quigley_ros:_2009,
+	title = {{ROS}: an open-source Robot Operating System},
+	shorttitle = {{ROS}},
+	author = {Quigley, Morgan and Conley, Ken and Gerkey, Brian and Faust, Josh and Foote, Tully and Leibs, Jeremy and Wheeler, Rob and Ng, Andrew},
+	date = {2009},
+	file = {ROS\: an open-source Robot Operating System | Willow Garage:/home/include4eto/fast_storage/library/zotero_library/storage/YKJ85I95/ros-open-source-robot-operating-system.html:text/html}
+}
+
+@inproceedings{spong_partial_1994,
+	title = {Partial feedback linearization of underactuated mechanical systems},
+	volume = {1},
+	doi = {10.1109/IROS.1994.407375},
+	abstract = {In this paper we discuss the partial feedback linearization control of underactuated mechanical systems. We consider an n degree of freedom system having m actuated, or active, degrees of freedom and l=n-m unactuated, or passive, degrees of freedom. It is known that the portion of the dynamics corresponding to the active degrees of freedom may be linearized by nonlinear feedback. In this paper we show, alternatively, that the portion of the dynamics corresponding to the passive degrees of freedom may be linearized by nonlinear feedback under a condition that we call strong inertial coupling. We derive and analyze the resulting zero dynamics which are crucial to an understanding of the response of the overall system. Simulation results are presented showing the performance of two link underactuated robots under partial feedback linearization control.{\textless}{\textless}{ETX}{\textgreater}{\textgreater}},
+	eventtitle = {Proceedings of {IEEE}/{RSJ} International Conference on Intelligent Robots and Systems ({IROS}'94)},
+	pages = {314--321 vol.1},
+	booktitle = {Proceedings of {IEEE}/{RSJ} International Conference on Intelligent Robots and Systems ({IROS}'94)},
+	author = {Spong, M. W.},
+	date = {1994-09},
+	keywords = {Robot kinematics, Control systems, feedback, Hydraulic actuators, Linear feedback control systems, linearisation techniques, linearization, Mathematical model, Mechanical systems, Mobile robots, nonlinear control systems, Nonlinear dynamical systems, nonlinear feedback, partial feedback linearization control, Robot sensing systems, strong inertial coupling, two-link underactuated robots, underactuated mechanical systems, Vehicle dynamics},
+	file = {IEEE Xplore Abstract Record:/home/include4eto/fast_storage/library/zotero_library/storage/G9MUEV3I/407375.html:text/html}
+}
+
+@book{sontag_mathematical_1998,
+	location = {New York},
+	edition = {2},
+	title = {Mathematical Control Theory: Deterministic Finite Dimensional Systems},
+	isbn = {978-0-387-98489-6},
+	url = {//www.springer.com/gb/book/9780387984896},
+	series = {Texts in Applied Mathematics},
+	shorttitle = {Mathematical Control Theory},
+	abstract = {Mathematics is playing an ever more important role in the physical and biologi­ cal sciences, provoking a blurring of boundaries between scientific disciplines and a resurgence of interest in the modern as well as the classical techniques of applied mathematics. This renewal of interest, both in research and teaching, has led to the establishment of the series Texts in Applied Mathematics ({TAM}). The development of new courses is a natural consequence of a high level of excitement on the research frontier as newer techniques, such as numerical and symbolic computer systems, dynamical systems, and chaos, mix with and rein­ force the traditional methods of applied mathematics. Thus, the purpose of this textbook series is to meet the current and future needs of these advances and to encourage the teaching of new courses. {TAM} will publish textbooks suitable for use in advanced undergraduate and beginning graduate courses, and will complement the Applied Mathematics Sci­ ences ({AMS}) series, which will focus on advanced textbooks and research-level monographs. v Preface to the Second Edition The most significant differences between this edition and the first are as follows: • Additional chapters and sections have been written, dealing with: nonlinear controllability via Lie-algebraic methods, variational and numerical approaches to nonlinear control, including a brief introduction to the Calculus of Variations and the Minimum Principle, - time-optimal control of linear systems, feedback linearization (single-input case), nonlinear optimal feedback, controllability of recurrent nets, and controllability of linear systems with bounded controls.},
+	publisher = {Springer-Verlag},
+	author = {Sontag, Eduardo D.},
+	urldate = {2018-12-02},
+	date = {1998},
+	langid = {english},
+	file = {Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/GFCGWWR7/9780387984896.html:text/html}
+}
+
+@article{peters_reinforcement_2008,
+	title = {Reinforcement learning of motor skills with policy gradients},
+	volume = {21},
+	issn = {0893-6080},
+	doi = {10.1016/j.neunet.2008.02.003},
+	abstract = {Autonomous learning is one of the hallmarks of human and animal behavior, and understanding the principles of learning will be crucial in order to achieve true autonomy in advanced machines like humanoid robots. In this paper, we examine learning of complex motor skills with human-like limbs. While supervised learning can offer useful tools for bootstrapping behavior, e.g., by learning from demonstration, it is only reinforcement learning that offers a general approach to the final trial-and-error improvement that is needed by each individual acquiring a skill. Neither neurobiological nor machine learning studies have, so far, offered compelling results on how reinforcement learning can be scaled to the high-dimensional continuous state and action spaces of humans or humanoids. Here, we combine two recent research developments on learning motor control in order to achieve this scaling. First, we interpret the idea of modular motor control by means of motor primitives as a suitable way to generate parameterized control policies for reinforcement learning. Second, we combine motor primitives with the theory of stochastic policy gradient learning, which currently seems to be the only feasible framework for reinforcement learning for humanoids. We evaluate different policy gradient methods with a focus on their applicability to parameterized motor primitives. We compare these algorithms in the context of motor primitive learning, and show that our most modern algorithm, the Episodic Natural Actor-Critic outperforms previous algorithms by at least an order of magnitude. We demonstrate the efficiency of this reinforcement learning method in the application of learning to hit a baseball with an anthropomorphic robot arm.},
+	pages = {682--697},
+	number = {4},
+	journaltitle = {Neural Networks: The Official Journal of the International Neural Network Society},
+	shortjournal = {Neural Netw},
+	author = {Peters, Jan and Schaal, Stefan},
+	date = {2008-05},
+	pmid = {18482830},
+	keywords = {Humans, Algorithms, Animals, Artificial Intelligence, Computer Simulation, Extremities, Feedback, Forelimb, Locomotion, Motor Skills, Movement, Reinforcement (Psychology), Robotics, Stochastic Processes}
+}
+
+@online{travisdewolf_linear-quadratic_2015,
+	title = {Linear-Quadratic Regulation for non-linear systems using finite differences},
+	url = {https://studywolf.wordpress.com/2015/11/10/linear-quadratic-regulation-for-non-linear-systems-using-finite-differences/},
+	abstract = {One of the standard controllers in basic control theory is the linear-quadratic regulator ({LQR}). There is a finite-horizon case (where you have a limited amount of time), and an infinite-horizon ca…},
+	titleaddon = {studywolf},
+	author = {{travisdewolf}},
+	urldate = {2018-12-02},
+	date = {2015-11-10},
+	langid = {english},
+	file = {Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/MZTEI9PM/linear-quadratic-regulation-for-non-linear-systems-using-finite-differences.html:text/html}
+}
+
+@article{kelly_introduction_2017,
+	title = {An Introduction to Trajectory Optimization:  How to Do Your Own Direct Collocation},
+	volume = {59},
+	issn = {0036-1445},
+	url = {https://epubs.siam.org/doi/10.1137/16M1062569},
+	doi = {10.1137/16M1062569},
+	shorttitle = {An Introduction to Trajectory Optimization},
+	abstract = {This paper is an introductory tutorial for numerical trajectory optimization with a focus on direct collocation methods. These methods are relatively simple to understand and effectively solve a wide variety of trajectory optimization problems. Throughout the paper we illustrate each new set of concepts by working through a sequence of four example problems. We start by using trapezoidal collocation to solve a simple one-dimensional toy problem and work up to using Hermite--Simpson collocation to compute the optimal gait for a bipedal walking robot. Along the way, we cover basic debugging strategies and guidelines for posing well-behaved optimization problems. The paper concludes with a short overview of other methods for trajectory optimization. We also provide an electronic supplement that contains well-documented {MATLAB} code for all examples and methods presented. Our primary goal is to provide the reader with the resources necessary to understand and successfully implement their own direct collocation methods.},
+	pages = {849--904},
+	number = {4},
+	journaltitle = {{SIAM} Review},
+	shortjournal = {{SIAM} Rev.},
+	author = {Kelly, M.},
+	urldate = {2018-12-04},
+	date = {2017-01-01},
+	file = {Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/7KPMCENU/Kelly - 2017 - An Introduction to Trajectory Optimization  How t.pdf:application/pdf;Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/2YZMJ2CU/16M1062569.html:text/html}
+}
+
+@book{betts_practical_2010,
+	title = {Practical Methods for Optimal Control and Estimation Using Nonlinear Programming: Second Edition},
+	isbn = {978-0-89871-857-7},
+	shorttitle = {Practical Methods for Optimal Control and Estimation Using Nonlinear Programming},
+	abstract = {The book describes how sparse optimization methods can be combined with discretization techniques for differential-algebraic equations and used to solve optimal control and estimation problems. The interaction between optimization and integration is emphasized throughout the book.},
+	pagetotal = {443},
+	publisher = {{SIAM}},
+	author = {Betts, John T.},
+	date = {2010-01-01},
+	langid = {english},
+	note = {Google-Books-{ID}: n9hLriD8Lb8C},
+	keywords = {Mathematics / Applied, Mathematics / Discrete Mathematics, Mathematics / General, Mathematics / Optimization, Technology \& Engineering / Robotics}
+}
+@book{zak2003systems,
+  title={Systems and control},
+  author={Zak, Stanislaw H},
+  volume={198},
+  year={2003}
+}
+@misc{koskie,
+  title={Using the Lagrangian to obtain Equations of Motion},
+  author={Sarah Koskie},
+  year={2008}
+}
+
+@book{avriel2003nonlinear,
+  title={Nonlinear Programming: Analysis and Methods},
+  author={Avriel, M.},
+  isbn={9780486432274},
+  lccn={2003055074},
+  series={Dover Books on Computer Science Series},
+  url={https://books.google.co.uk/books?id=byF4Xb1QbvMC},
+  year={2003},
+  publisher={Dover Publications}
+}
+
+
+@misc{hoppeoptimization,
+	title={Optimization Theory},
+	year={2006},
+	url={https://www.math.uh.edu/~rohop/fall_06/}
+}
+
+
+
+
+@article{DBLP:journals/corr/HasseltGS15,
+  author    = {Hado van Hasselt and
+               Arthur Guez and
+               David Silver},
+  title     = {Deep Reinforcement Learning with Double Q-learning},
+  journal   = {CoRR},
+  volume    = {abs/1509.06461},
+  year      = {2015},
+  archivePrefix = {arXiv},
+  eprint    = {1509.06461},
+  timestamp = {Wed, 07 Jun 2017 14:40:43 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/HasseltGS15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@report{perkins_using_1999,
+	title = {Using Options for Knowledge Transfer in Reinforcement Learning},
+	abstract = {One of the original motivations for the use of temporally extended actions,  or options, in reinforcement learning was to enable the transfer of  learned value functions or policies to new problems. Many experimenters  have used options to speed learning on single problems, but options have  not been studied in depth as a tool for transfer.  In this paper we introduce a formal model of a learning problem as a  distribution of Markov Decision Problems ({MDPs}). Each {MDP} represents a  task the agent will have to solve. Our model can also be viewed as a partially  observable Markov decision problem ({POMDP}), with a special structure that  we describe. We study two learning algorithms, one which keeps a single  value function that generalizes across tasks, and an incremental {POMDPinspired}  method maintaining separate value functions for each task.  We evaluate the learning algorithms on an extension of the Mountain  Car domain, in terms of both learning speed and asymptotic performance.  Empi...},
+	author = {Perkins, Theodore J. and Precup, Doina},
+	date = {1999},
+	file = {Citeseer - Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/QSGFPHJE/Perkins and Precup - 1999 - Using Options for Knowledge Transfer in Reinforcem.pdf:application/pdf;Citeseer - Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/YQ7WFGFA/summary.html:text/html}
+}
+
+@article{van_hasselt_deep_2015,
+	title = {Deep Reinforcement Learning with Double Q-learning},
+	url = {http://arxiv.org/abs/1509.06461},
+	abstract = {The popular Q-learning algorithm is known to overestimate action values under certain conditions. It was not previously known whether, in practice, such overestimations are common, whether they harm performance, and whether they can generally be prevented. In this paper, we answer all these questions affirmatively. In particular, we first show that the recent {DQN} algorithm, which combines Q-learning with a deep neural network, suffers from substantial overestimations in some games in the Atari 2600 domain. We then show that the idea behind the Double Q-learning algorithm, which was introduced in a tabular setting, can be generalized to work with large-scale function approximation. We propose a specific adaptation to the {DQN} algorithm and show that the resulting algorithm not only reduces the observed overestimations, as hypothesized, but that this also leads to much better performance on several games.},
+	author = {van Hasselt, Hado and Guez, Arthur and Silver, David},
+	urldate = {2018-02-13},
+	date = {2015-09-22},
+	eprinttype = {arxiv},
+	eprint = {1509.06461},
+	keywords = {Computer Science - Learning},
+}
+
+@article{levine_shallow_2017,
+	title = {Shallow Updates for Deep Reinforcement Learning},
+	url = {http://arxiv.org/abs/1705.07461},
+	abstract = {Deep reinforcement learning ({DRL}) methods such as the Deep Q-Network ({DQN}) have achieved state-of-the-art results in a variety of challenging, high-dimensional domains. This success is mainly attributed to the power of deep neural networks to learn rich domain representations for approximating the value function or policy. Batch reinforcement learning methods with linear representations, on the other hand, are more stable and require less hyper parameter tuning. Yet, substantial feature engineering is necessary to achieve good results. In this work we propose a hybrid approach -- the Least Squares Deep Q-Network ({LS}-{DQN}), which combines rich feature representations learned by a {DRL} algorithm with the stability of a linear least squares method. We do this by periodically re-training the last hidden layer of a {DRL} network with a batch least squares update. Key to our approach is a Bayesian regularization term for the least squares update, which prevents over-fitting to the more recent data. We tested {LS}-{DQN} on five Atari games and demonstrate significant improvement over vanilla {DQN} and Double-{DQN}. We also investigated the reasons for the superior performance of our method. Interestingly, we found that the performance improvement can be attributed to the large batch size used by the {LS} method when optimizing the last layer.},
+	journaltitle = {{arXiv}:1705.07461 [cs, stat]},
+	author = {Levine, Nir and Zahavy, Tom and Mankowitz, Daniel J. and Tamar, Aviv and Mannor, Shie},
+	urldate = {2018-03-02},
+	date = {2017-05-21},
+	eprinttype = {arxiv},
+	eprint = {1705.07461},
+	keywords = {Statistics - Machine Learning, Computer Science - Learning, Computer Science - Artificial Intelligence},
+	file = {arXiv\:1705.07461 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/99IZ28CD/Levine et al. - 2017 - Shallow Updates for Deep Reinforcement Learning.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/UFHU3JF2/1705.html:text/html}
+}
+
+@article{kalman_new_1960,
+	title = {A New Approach to Linear Filtering and Prediction Problems},
+	volume = {82},
+	issn = {0098-2202},
+	url = {http://dx.doi.org/10.1115/1.3662552},
+	doi = {10.1115/1.3662552},
+	abstract = {The classical filtering and prediction problem is re-examined using the Bode-Shannon representation of random processes and the “state-transition” method of analysis of dynamic systems. New results are: (1) The formulation and methods of solution of the problem apply without modification to stationary and nonstationary statistics and to growing-memory and infinite-memory filters. (2) A nonlinear difference (or differential) equation is derived for the covariance matrix of the optimal estimation error. From the solution of this equation the co-efficients of the difference (or differential) equation of the optimal linear filter are obtained without further calculations. (3) The filtering problem is shown to be the dual of the noise-free regulator problem. The new method developed here is applied to two well-known problems, confirming and extending earlier results. The discussion is largely self-contained and proceeds from first principles; basic concepts of the theory of random processes are reviewed in the Appendix.},
+	pages = {35--45},
+	number = {1},
+	journaltitle = {Journal of Basic Engineering},
+	shortjournal = {J. Basic Eng},
+	author = {Kalman, R. E.},
+	urldate = {2018-03-11},
+	date = {1960-03-01},
+	file = {Full Text PDF:/home/include4eto/fast_storage/library/zotero_library/storage/WQBWJWDS/Kalman - 1960 - A New Approach to Linear Filtering and Prediction .pdf:application/pdf}
+}
+
+@article{lillicrap_continuous_2015,
+	title = {Continuous control with deep reinforcement learning},
+	url = {http://arxiv.org/abs/1509.02971},
+	abstract = {We adapt the ideas underlying the success of Deep Q-Learning to the continuous action domain. We present an actor-critic, model-free algorithm based on the deterministic policy gradient that can operate over continuous action spaces. Using the same learning algorithm, network architecture and hyper-parameters, our algorithm robustly solves more than 20 simulated physics tasks, including classic problems such as cartpole swing-up, dexterous manipulation, legged locomotion and car driving. Our algorithm is able to find policies whose performance is competitive with those found by a planning algorithm with full access to the dynamics of the domain and its derivatives. We further demonstrate that for many of the tasks the algorithm can learn policies end-to-end: directly from raw pixel inputs.},
+	journaltitle = {{arXiv}:1509.02971 [cs, stat]},
+	author = {Lillicrap, Timothy P. and Hunt, Jonathan J. and Pritzel, Alexander and Heess, Nicolas and Erez, Tom and Tassa, Yuval and Silver, David and Wierstra, Daan},
+	urldate = {2018-06-14},
+	date = {2015-09-09},
+	eprinttype = {arxiv},
+	eprint = {1509.02971},
+	keywords = {Statistics - Machine Learning, Computer Science - Learning},
+	file = {arXiv\:1509.02971 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/U59MFMHV/Lillicrap et al. - 2015 - Continuous control with deep reinforcement learnin.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/MAGNCEWQ/1509.html:text/html}
+}
+
+@inproceedings{sutton_policy_1999,
+	location = {Cambridge, {MA}, {USA}},
+	title = {Policy Gradient Methods for Reinforcement Learning with Function Approximation},
+	url = {http://dl.acm.org/citation.cfm?id=3009657.3009806},
+	series = {{NIPS}'99},
+	abstract = {Function approximation is essential to reinforcement learning, but the standard approach of approximating a value function and determining a policy from it has so far proven theoretically intractable. In this paper we explore an alternative approach in which the policy is explicitly represented by its own function approximator, independent of the value function, and is updated according to the gradient of expected reward with respect to the policy parameters. Williams's {REINFORCE} method and actor-critic methods are examples of this approach. Our main new result is to show that the gradient can be written in a form suitable for estimation from experience aided by an approximate action-value or advantage function. Using this result, we prove for the first time that a version of policy iteration with arbitrary differentiable function approximation is convergent to a locally optimal policy.},
+	pages = {1057--1063},
+	booktitle = {Proceedings of the 12th International Conference on Neural Information Processing Systems},
+	publisher = {{MIT} Press},
+	author = {Sutton, Richard S. and {McAllester}, David and Singh, Satinder and Mansour, Yishay},
+	urldate = {2018-10-20},
+	date = {1999},
+	file = {1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf:/home/include4eto/fast_storage/library/zotero_library/storage/CK9IZMWT/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf:application/pdf}
+}
+
+@article{mousavi_deep_2018,
+	title = {Deep Reinforcement Learning: An Overview},
+	volume = {16},
+	url = {http://arxiv.org/abs/1806.08894},
+	doi = {10.1007/978-3-319-56991-8_32},
+	shorttitle = {Deep Reinforcement Learning},
+	abstract = {In recent years, a specific machine learning method called deep learning has gained huge attraction, as it has obtained astonishing results in broad applications such as pattern recognition, speech recognition, computer vision, and natural language processing. Recent research has also been shown that deep learning techniques can be combined with reinforcement learning methods to learn useful representations for the problems with high dimensional raw data input. This chapter reviews the recent advances in deep reinforcement learning with a focus on the most used deep architectures such as autoencoders, convolutional neural networks and recurrent neural networks which have successfully been come together with the reinforcement learning framework.},
+	pages = {426--440},
+	journaltitle = {{arXiv}:1806.08894 [cs, stat]},
+	author = {Mousavi, Seyed Sajad and Schukat, Michael and Howley, Enda},
+	urldate = {2018-10-20},
+	date = {2018},
+	eprinttype = {arxiv},
+	eprint = {1806.08894},
+	keywords = {Statistics - Machine Learning, Computer Science - Artificial Intelligence, Computer Science - Machine Learning},
+	file = {arXiv\:1806.08894 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/URCG45S4/Mousavi et al. - 2018 - Deep Reinforcement Learning An Overview.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/WEZXX8LF/1806.html:text/html}
+}
+
+@article{barto_neuronlike_1983,
+	title = {Neuronlike adaptive elements that can solve difficult learning control problems},
+	volume = {{SMC}-13},
+	issn = {0018-9472},
+	doi = {10.1109/TSMC.1983.6313077},
+	abstract = {It is shown how a system consisting of two neuronlike adaptive elements can solve a difficult learning control problem. The task is to balance a pole that is hinged to a movable cart by applying forces to the cart's base. It is argued that the learning problems faced by adaptive elements that are components of adaptive networks are at least as difficult as this version of the pole-balancing problem. The learning system consists of a single associative search element ({ASE}) and a single adaptive critic element ({ACE}). In the course of learning to balance the pole, the {ASE} constructs associations between input and output by searching under the influence of reinforcement feedback, and the {ACE} constructs a more informative evaluation function than reinforcement feedback alone can provide. The differences between this approach and other attempts to solve problems using neurolike elements are discussed, as is the relation of this work to classical and instrumental conditioning in animal learning studies and its possible implications for research in the neurosciences.},
+	pages = {834--846},
+	number = {5},
+	journaltitle = {{IEEE} Transactions on Systems, Man, and Cybernetics},
+	author = {Barto, A. G. and Sutton, R. S. and Anderson, C. W.},
+	date = {1983-09},
+	keywords = {neural nets, Neurons, Supervised learning, Training, adaptive control, adaptive critic element, Adaptive systems, animal learning studies, associative search element, Biological neural networks, learning control problem, learning systems, movable cart, neuronlike adaptive elements, Pattern recognition, Problem-solving},
+	file = {IEEE Xplore Abstract Record:/home/include4eto/fast_storage/library/zotero_library/storage/5AB78XB6/6313077.html:text/html}
+}
+
+@inproceedings{williams_simple_1992,
+	title = {Simple statistical gradient-following algorithms for connectionist reinforcement learning},
+	abstract = {Abstract. This article presents a general class of associative reinforcement learning algorithms for connectionist networks containing stochastic units. These algorithms, called {REINFORCE} algorithms, are shown to make weight adjustments in a direction that lies along the gradient of expected reinforcement in both immediate-reinforcement tasks and certain limited forms of delayed-reinforcement tasks, and they do this without explicitly computing gradient estimates or even storing information from which such estimates could be computed. Specific examples of such algorithms are presented, some of which bear a close relationship to certain existing algorithms while others are novel but potentially interesting in their own right. Also given are results that show how such algorithms can be naturally integrated with backpropagation. We close with a brief discussion of a number of additional issues surrounding the use of such algorithms, including what is known about their limiting behaviors as well as further considerations that might be used to help develop similar but potentially more powerful reinforcement learning algorithms.},
+	pages = {229--256},
+	booktitle = {Machine Learning},
+	author = {Williams, Ronald J.},
+	date = {1992},
+	file = {Citeseer - Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/43XU3FA6/summary.html:text/html}
+}
+
+@misc{openai_gym,
+  Author = {Greg Brockman and Vicki Cheung and Ludwig Pettersson and Jonas Schneider and John Schulman and Jie Tang and Wojciech Zaremba},
+  Title = {OpenAI Gym},
+  Year = {2016},
+  Eprint = {arXiv:1606.01540},
+}
+
+@Misc{scipy,
+  author =    {Eric Jones and Travis Oliphant and Pearu Peterson and others},
+  title =     {{SciPy}: Open source scientific tools for {Python}},
+  year =      {2001--},
+  url = "http://www.scipy.org/",
+  note = {[Online; accessed <today>]}
+}
+
+@Misc{policy_gradient_tutorial,
+	author = {Lilian Weng},
+	title = {Policy Gradient Algorithms},
+	year={2018},
+	url = "https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#dpg",
+  	note = {[Online; accessed <today>]}
+}
+
+@Article{hochreiter_vanishing_1998,
+  Title                    = {The Vanishing Gradient Problem During Learning Recurrent Neural Nets and Problem Solutions},
+  Author                   = {Hochreiter, Sepp},
+  Number                   = {2},
+  Pages                    = {107--116},
+  Volume                   = {6},
+
+  Date                     = {1998-04},
+  Doi                      = {10.1142/S0218488598000094},
+  ISSN                     = {0218-4885},
+  Journaltitle             = {Int. J. Uncertain. Fuzziness Knowl.-Based Syst.},
+  Keywords                 = {long short-term memory, long-term dependencies, recurrent neural nets, vanishing gradient},
+  Url                      = {http://dx.doi.org/10.1142/S0218488598000094},
+  Urldate                  = {2018-09-25}
+}
+
+
+@article{kingma_adam:_2014,
+	title = {Adam: A Method for Stochastic Optimization},
+	url = {http://arxiv.org/abs/1412.6980},
+	shorttitle = {Adam},
+	abstract = {We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss {AdaMax}, a variant of Adam based on the infinity norm.},
+	journaltitle = {{arXiv}:1412.6980 [cs]},
+	author = {Kingma, Diederik P. and Ba, Jimmy},
+	urldate = {2017-10-25},
+	date = {2014-12-22},
+	eprinttype = {arxiv},
+	eprint = {1412.6980},
+	keywords = {Computer Science - Learning},
+	file = {arXiv\:1412.6980 PDF:/home/include4eto/fast_storage/library/zotero_library/storage/FL74CP75/Kingma and Ba - 2014 - Adam A Method for Stochastic Optimization.pdf:application/pdf;arXiv.org Snapshot:/home/include4eto/fast_storage/library/zotero_library/storage/H79LHCMV/1412.html:text/html}
+}
+
+@article{DBLP:journals/corr/HasseltGS15,
+  author    = {Hado van Hasselt and
+               Arthur Guez and
+               David Silver},
+  title     = {Deep Reinforcement Learning with Double Q-learning},
+  journal   = {CoRR},
+  volume    = {abs/1509.06461},
+  year      = {2015},
+  archivePrefix = {arXiv},
+  eprint    = {1509.06461},
+  timestamp = {Wed, 07 Jun 2017 14:40:43 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/HasseltGS15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@InProceedings{pmlr-v32-silver14,
+  title = 	 {Deterministic Policy Gradient Algorithms},
+  author = 	 {David Silver and Guy Lever and Nicolas Heess and Thomas Degris and Daan Wierstra and Martin Riedmiller},
+  booktitle = 	 {Proceedings of the 31st International Conference on Machine Learning},
+  pages = 	 {387--395},
+  year = 	 {2014},
+  editor = 	 {Eric P. Xing and Tony Jebara},
+  volume = 	 {32},
+  number =       {1},
+  series = 	 {Proceedings of Machine Learning Research},
+  address = 	 {Bejing, China},
+  month = 	 {22--24 Jun},
+  publisher = 	 {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v32/silver14.pdf},
+  url = 	 {http://proceedings.mlr.press/v32/silver14.html},
+  abstract = 	 {In this paper we consider deterministic policy gradient algorithms for reinforcement learning with continuous actions. The deterministic policy gradient has a particularly appealing form: it is the expected gradient of the action-value function. This simple form means that the deterministic policy gradient can be estimated much more efficiently than the usual stochastic policy gradient. To ensure adequate exploration, we introduce an off-policy actor-critic algorithm that learns a deterministic target policy from an exploratory behaviour policy. Deterministic policy gradient algorithms outperformed their stochastic counterparts in several benchmark problems, particularly in high-dimensional action spaces.}
+}
