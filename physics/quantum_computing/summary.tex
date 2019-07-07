@@ -26,7 +26,7 @@ Ya'll've been warned.
     \usepackage[margin=.8in, tmargin=.3in]{geometry}
     \renewcommand{\baselinestretch}{1.2}
     \newcommand{\eps}{\epsilon}
-    \newcommand{\tens}{\otimes}
+    % \newcommand{\tens}{\otimes}
 
 
     % Fancy comments from Gutmann
@@ -35,6 +35,9 @@ Ya'll've been warned.
 \newcommand{\todo}[1]{\comment{\textcolor{Red}{\textit{\lbrack TODO: #1 \rbrack}}}}
 \newcommand{\note}[1]{\comment{\textcolor{Blue}{\textit{\lbrack NOTE: #1 \rbrack}}}}
 
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\limits_{#1}}%
+}
 
     \setlength{\parskip}{\baselineskip}
     % \newcommand{\l}{\left(}
@@ -91,6 +94,13 @@ For example, position vectors are orthogonal states, which means we can measure 
 \textbf{Superposition} Given the above observation, we can treat quantum states as a superposition of all possible \textbf{orthogonal} eigenstates. We can do all sorts of magic by measuring in clever states. Think of it as de-composing a signal into basic frequencies. \textit{Note: the following is my interpretation}. It's not that the signal itself \textbf{is built this way by nature}, it's a by-product of how we perceive and measure the world. \textit{If we can only treat an object as there and not there, we can treat it as being there AND not there at the same time with some probability.}
 
 \textbf{Time-evolution} Schr{\"o}dinger \todo{add}
+Note this is a wave equation. C.f. "the" wave equation (\todo{add rope wave equation}):
+
+\begin{equation}
+    H(t) \ket{\psi(t)} = i \hbar \frac{\partial}{\partial t} \ket{\psi(t)}
+\end{equation}
+
+$H$ is the hamiltonian, providing the total energy in the system. This is what we will have to find ourselves for different systems.
 
 \subsection{Example in a discrete system}
 Let's assume we have the state:
@@ -131,5 +141,37 @@ The average measurement result would be $\bra{\psi} M \ket{\psi}$:
 
 To understand why this makes sense, consider that $1/2$ of the time we will observe $\ket{\phi_0}$, i.e. the number (measurement) $1$. The other half we will observe $\ket{\phi_2}$ and $2$. Which adds up to the same figure.
 
+\subsection{Projective Measurements}
+\subsection{Density Matrices and Mixed Quantum Probabilitic States}
+\textit{NOTE: This is a combination of quantum uncertainty and classical uncertainty (noise)}
+\subsection{Tensors and Tensor Products}
+
+\section{No-cloning Theorem}
+Assume there exists an operator $U$ such that:
+\begin{gather*}
+    U \ket{\psi} \tens{} \ket{0} = \ket{\psi} \tens{} \ket{\psi} \\
+    U \ket{\phi} \tens{} \ket{0} = \ket{\phi} \tens{} \ket{\phi}
+\end{gather*}
+
+Then:
+\begin{gather*}
+    \ket{00} \xrightarrow{U} \ket{00} \\
+    \ket{10} \xrightarrow{U} \ket{11}
+\end{gather*}
+
+Hence:
+\begin{gather*}
+    \alpha \ket{00} + \beta \ket{10} \xrightarrow{U} 
+        \alpha U \ket{00} + \beta U \ket{10} \\
+        = \alpha \ket{00} + \beta \ket{11}
+\end{gather*}
+
+However, at the same time:
+\begin{gather*}
+    \alpha \ket{00} + \beta \ket{10} = (\alpha \ket{0} + \beta \ket{1}) \tens{} \ket{0} \xrightarrow{U}
+        (\alpha \ket{0} + \beta \ket{1}) \tens{} (\alpha \ket{0} + \beta \ket{1})
+\end{gather*}
+
+Which are trivialy not the same on the right side, but are the same on the left side. Q.e.d.
 
 \end{document}
