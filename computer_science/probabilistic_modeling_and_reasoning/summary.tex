@@ -747,15 +747,42 @@ The above operation is represented by the following \textbf{reduced} factor grap
 \end{center}
 
 \subsection{Message Passing}
+\textbf{TODO: Graphs}
+\begin{equation*}
+    \mu_{\phi \to \bx}(\bx) = \sum_{\bx_1, \dots, \bx_j} \phi(\bx_1, \dots, \bx_j, x)
+        \prod_{i = 1}^j \mu_{\bx_i \to \phi}(\bx_i)
+\end{equation*}
 
+\begin{equation*}
+    \mu_{\bx \to \phi}(\bx) = \prod_{i = 1} ^ {j} \mu_{\phi_i \to \bx}
+\end{equation*}
+
+\begin{equation*}
+    \prob(\bx) \propto \prod_{i = 1}^j \mu_{\phi_i \to \bx}(\bx)
+\end{equation*}
+
+\begin{equation*}
+    \prob(\bx_1, \dots, \bx_j) \propto \phi(\bx_1, \dots, \bx_j)
+        \prod_{i = 1}^{j} \mu_{\bx_i \to \phi} (\bx_i)
+\end{equation*}
 
 \section{Inference for Markov Chains}
+\textbf{TODO: Just scan this..}
 \subsection{$\alpha$-recursion}
 \subsection{Smoothing}
 \subsection{$\alpha$-$\beta$ Recursion}
 
 \section{Model-Based Learning}
+\begin{itemize}
+    \item[--] Probabilistic model: table for a distribution $\prob(\bx)$
+    \item[--] Statistical model: set of probabilistic models: $\{ \prob(\bx; \theta) \}$
+    \item[--] Bayesian model: prior on theta, replace "parametrized by" with "conditioned on"
+        $\prob(\bx) = \int \prob(\bx \giv \theta)\ \prob(\theta)$. To get the probability distribution
+        of $\bx$ as above, we need to integrate over all possible values of $\theta$.
+\end{itemize}
+
 \section{Moment Matching}
+
 \section{Bayesian Inference}
 \section{Factor Analysis}
 \section{Independent Component Analysis (ICA)}
