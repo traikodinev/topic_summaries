@@ -23,6 +23,7 @@ Ya'll've been warned.
     \usepackage[bottom]{footmisc}
     \usepackage{flexisym}
     \usepackage{cancel}
+    \usepackage[braket]{qcircuit}
     \usepackage[margin=.8in, tmargin=.3in]{geometry}
     \renewcommand{\baselinestretch}{1.2}
     \newcommand{\eps}{\epsilon}
@@ -173,5 +174,21 @@ However, at the same time:
 \end{gather*}
 
 Which are trivialy not the same on the right side, but are the same on the left side. Q.e.d.
+
+\section{Superdense Coding}
+\[
+  \Qcircuit @C=1em @R=.7em {
+    &                  &          &          & b_1 \qquad \cwx[1]   & b_2 \qquad \cwx[1] & \\
+    & \lstick{\ket{0}} & \gate{H} & \ctrl{1} & \targ                & \targ              & \ctrl{1} & \gate{H} & \meter & \rstick{b_1} \cw\\
+    & \lstick{\ket{0}} &  \qw     & \targ    & \qw                  &  \qw               & \targ    & \qw      & \meter & \rstick{b_2} \cw
+  }
+\]
+
+\begin{align*}
+    b_1 b_2 ; \quad
+            & \text{if}\ b_1 = 1, \text{then}\ Z \\
+            & \text{if}\ b_2 = 1, \text{then}\ X 
+\end{align*}
+
 
 \end{document}
