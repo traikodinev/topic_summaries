@@ -77,6 +77,9 @@
     \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
     \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
+    \DeclareMathOperator*{\argmax}{arg\,max}
+    \DeclareMathOperator*{\argmin}{arg\,min}
+
     % \newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
     % \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
     \newcommand\indep{\!\perp\!\!\!\perp}
@@ -782,6 +785,79 @@ The above operation is represented by the following \textbf{reduced} factor grap
 \end{itemize}
 
 \section{Moment Matching}
+Assume we have a parametric statistical model:
+
+\begin{equation*}
+    \prob(\bx; \theta) = \frac{
+        \prob^*(\bx; \theta)
+    } {
+        Z(\theta)
+    }
+\end{equation*}
+
+where $Z(\theta) = \int \prob^*(\bx; \theta)\ \text{d}\bx$ is the partition function. Maximum likelihood returns:
+
+\begin{equation*}
+    \theta^* = \argmax_\theta L(\theta) = 
+        \argmax_\theta \sum_i \log \prob(\bx_i; \theta)
+\end{equation*}
+
+the last being true for i.i.d. data only. This directly implies that at the maximum, the derivative is $0$:
+
+\begin{equation*}
+    \nabla_\theta L(\theta) \vert_{\theta^*} = 0
+\end{equation*}
+
+We define the moments to be:
+\begin{equation*}
+    m(\bx; \theta) = \nabla_\theta \log \prob^*(\bx; \theta)
+\end{equation*}
+
+Then:
+
+\begin{align*}
+    \nabla_\theta L(\theta) &= \nabla_\theta \sum_i \log \prob(\bx_i; \theta) = \nabla_\theta \sum_i \log \frac{\prob^*(\bx_i; \theta)}{Z(\theta)} \\
+    % 
+    &= \bigg[\nabla_\theta \sum_i \log\prob^*(\bx_i; \theta) \bigg] - \nabla_\theta n \times \log Z(\theta) \\
+    % 
+    &= \sum_i \nabla_\theta \prob^*(\bx_i; \theta) - n \nabla_\theta \log Z(\theta) \\
+    % 
+    &= \sum_i m(\bx_i; \theta) - n \nabla_\theta \log Z(\theta)
+\end{align*}
+
+then for the second term we have:
+
+\begin{align*}
+    \nabla_\theta \log Z(\theta) &= \frac{1}{Z(\theta)} \nabla_\theta Z(\theta) = \frac{1}{Z(\theta)} \nabla_\theta \int \prob^*(\bx; \theta) \text{d} \bx = \\
+    % 
+    &= \frac{
+        \int \nabla_\theta \prob^*(\bx; \theta) \text{d} \bx
+    } {
+        Z(\theta)
+    } = \\
+    % 
+    &= \frac{
+        \int \nabla_\theta \big[ \log \prob^*(\bx; \theta) \big] \prob^*(\bx; \theta) \text{d}\theta
+    } {
+        Z(\theta)
+    } = \\
+    % 
+    &= \int \nabla_\theta \big[ \log \prob^*({\bx; \theta}) \big] \prob(\bx; \theta) \text{d}\bx \\
+    % 
+    &= \int m(\bx; \theta) \prob(\bx; \theta) \text{d}\bx
+\end{align*}
+
+which implies that:
+\begin{equation*}
+    \nabla_\theta L(\theta) = \sum_i m(\bx_i; \theta) - n \int m(\bx; \theta) \prob(\bx; \theta) \text{d} \theta
+\end{equation*}
+
+which means that at $\theta^*$, where $\nabla_\theta L(\theta) = 0$:
+\begin{equation*}
+    \frac{1}{n} \sum_i m(\bx_i; \theta) = \int m(\bx; \theta) \prob(\bx; \theta) \text{d} \theta
+\end{equation*}
+
+This proves that maximumum likelihood can be thought of as moment matching. We are matching the empirical moments to their expectation over the normalized data distribution $\prob(\bx; \theta)$. Note we don't have access to $\prob(\bx; \theta)$, but only to $\prob^*(\bx; \theta)$, the unnormalized distribution.
 
 \section{Bayesian Inference}
 \section{Factor Analysis}
