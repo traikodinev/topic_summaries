@@ -145,7 +145,7 @@ To understand why this makes sense, consider that $1/2$ of the time we will obse
 \subsection{Projective Measurements}
 \subsection{Density Matrices and Mixed Quantum Probabilitic States}
 \textit{NOTE: This is a combination of quantum uncertainty and classical uncertainty (noise)}
-\subsection{Tensors and Tensor Products}
+\subsection{Tensors and Tensor Products (Systems of Multiple Quantum States)}
 
 \section{No-cloning Theorem}
 Assume there exists an operator $U$ such that:
@@ -176,7 +176,38 @@ However, at the same time:
 Which are trivialy not the same on the right side, but are the same on the left side. Q.e.d.
 
 \section{Entanglement and Bell States}
-\todo{todo}
+Entanglement is a phenomenon that exists only in quantum systems and it's at the core of quantum computing. Mathematically, consider the following operation on two quantum states:
+
+\begin{align*}
+    \ket{+} &= H \ket{0} =
+        \frac{1}{\sqrt{2}}
+        \begin{pmatrix}
+            1 & 1 \\
+            1 & -1
+        \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+        \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+            = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1})  \\
+    \ket{-} &= H \ket{1} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})
+\end{align*}
+
+where $H$ is the hadamard gate. These are a superposition of states. Now let's use $\ket{+}$ as a control for a CNOT on a $\ket{0}$. I.e. this circuit:
+
+\[
+    \Qcircuit @C=1em @R=.7em {
+        & \lstick{\ket{0}} & \gate{H} & \ctrl{1} \\
+        & \lstick{\ket{0}} &  \qw     & \targ
+    }
+\]
+
+The resulting quantum state (of both qubits) is:
+\begin{align*}
+    \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\ \text{CNOT}\ \ket{0} =
+        \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})
+\end{align*}
+
+where $\ket{00} = \ket{0} \tens{} \ket{1}$ is shorthand for a tensor product. This is known as a \textbf{maximally entangled} state. This system cannot be separated into two distinct systems (i.e. two tensor-ed quantum states $\ket{\alpha} \tens{} \ket{\beta}$). Another way to look at it is that if these qubits were separated (to Alice and Bob's labs), then measurements depend on each other. If Alice measures $\ket{0}$, then the state collapses to $\ket{00}$ and Bob also measures $\ket{0}$ (and vice-versa).
+
+This is a profound result that holds true in reality. In fact, observation even after the fact causes the system to collapse. Key words are \textbf{quantum eraser} and \textbf{delayed-choice quantum eraser} experiments.
 
 \section{Superdense Coding}
 \[
