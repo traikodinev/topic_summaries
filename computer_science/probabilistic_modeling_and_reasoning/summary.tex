@@ -860,7 +860,93 @@ which means that at $\theta^*$, where $\nabla_\theta L(\theta) = 0$:
 This proves that maximumum likelihood can be thought of as moment matching. We are matching the empirical moments to their expectation over the normalized data distribution $\prob(\bx; \theta)$. Note we don't have access to $\prob(\bx; \theta)$, but only to $\prob^*(\bx; \theta)$, the unnormalized distribution.
 
 \section{Bayesian Inference}
+This:
+\begin{align*}
+    \prob(\theta \giv \mathcal{D}) &= \frac{
+        \prob(\theta; \mathcal{D})
+    } {
+        \prob(\mathcal{D})
+    } = \frac{
+        \prob(\mathcal{D} \giv \theta) \prob(\theta)
+    } {
+        \prob(\mathcal{D})
+    } \\
+    &\propto \text{Likelihood}(\theta) \prob(\theta) \propto \underbrace{\bigg[
+        \prod_i \prob(\bx_i \giv \theta)
+    \bigg]}_{\text{for i.i.d. data}} \prob(\theta)
+\end{align*}
+
 \section{Factor Analysis}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1.6cm,y=1cm]
+        % Nodes
+        \node[latent]               (h1) {$h_1$};
+        \node[latent, right=of h1]  (h2) {$h_2$};
+        \node[latent, below=of h1, xshift=-1.2cm]  (v1) {$v_3$};
+        \node[latent, right=of v1]  (v2) {$v_3$};
+        \node[latent, right=of v2]  (v3) {$v_3$};
+        
+        \edge{h1, h2}   {v1}
+        \edge{h1, h2}   {v2}
+        \edge{h1, h2}   {v3}
+    \end{tikzpicture}
+    \caption{FA/ICA graphical model}
+    \label{fig:fa_ica}
+\end{figure}
+
+Both FA and ICA have the same (parametrized) graphical model. See \autoref{fig:fa_ica}. We have $D$ visible and $H$ hidden units:
+
+$$
+    \mathbf{h} \sim \mathcal{N}(\mathbf{0}, \mathbb{I}) \qquad H < D
+$$
+$$
+    \prob(\mathbf{v} \giv \mathbf{\mathbf{h}}; \theta) = \mathcal{N}(\mathbf{v}; \mathbf{F} \mathbf{h} + \mathbf{c}, \psi)
+$$
+
+where:
+$$
+    \theta = \{ 
+        \underbrace{\mathbf{c}}_{\text{mean of } \mathbf{x}},
+        \mathbf{F} = 
+            \underbrace{(f_1, \dots, f_H)}_{\text{factors of size D; F is DxH}},
+        \Psi = 
+            \underbrace{\text{diag}(\psi_1, \dots, \psi_D)}_{\text{noise variance}}
+    \}
+$$
+
+This means that the model is:
+\begin{align*}
+    \mathbf{v} &= \mathbf{F} \mathbf{h} + \mathbf{c} + \mathbf{\epsilon} \qquad \epsilon \sim \mathcal{N}(0, \Psi)\\
+    &= \sum_{i = 1}^H \mathbf{f}_i h_i + \mathbf{c} + \mathbf{\epsilon}
+\end{align*}
+
+\subsection{An important identity}
+\begin{gather*}
+    \text{if}\ \bx \sim \mathcal{N}(\mu_x, \mathbf{C}_x);
+        \qquad \mathbf{z} \sim \mathcal{N} (\mu_z, \mathbf{C}_z) \\
+    \mathbf{y} = \mathbf{A} \mathbf{x} + \mathbf{z},\
+    \text{then} \qquad y \sim \mathcal{N}(
+        \mathbf{A} \mu_x + \mu_z,
+        \mathbf{A} \mathbf{C}_x \mathbf{A}^{T} + C_z
+    )
+\end{gather*}
+
+\subsection{Factor Rotation Problem}
+\begin{align*}
+    \mathbf{v} &= \mathbf{F} \mathbf{h} + \mathbf{c} + \mathbf{\epsilon} = \mathbf{F} (\mathbf{R} \mathbf{R}^{T}) \mathbf{h} + \mathbf{c} + \mathbf{\epsilon} \\
+    &= (\mathbf{F} \mathbf{R}) (\mathbf{R}^{T} \mathbf{h}) + \mathbf{c} + \mathbf{\epsilon} =
+    (\mathbf{F} \mathbf{R}) \bar{\mathbf{h}} + \mathbf{c} + \mathbf{\epsilon}
+\end{align*}
+
+Which means that:
+$$
+    \prob(\bar{\mathbf{h}}) = \mathcal{N}(
+        \bar{\mathbf{h}}; 0, \mathbb{I}
+    )
+$$
+since $\mathbf{R}$ is an orthogonal matrix.
+
 \section{Independent Component Analysis (ICA)}
 
 \section{Intractable Likelihood Functions}
