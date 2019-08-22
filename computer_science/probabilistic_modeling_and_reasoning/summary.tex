@@ -948,8 +948,56 @@ $$
 since $\mathbf{R}$ is an orthogonal matrix.
 
 \section{Independent Component Analysis (ICA)}
+ICA uses the same model as FCA but makes fewer assumptions. The joint of the hidden is:
+% 
+\begin{equation*}
+    \prob_h(\mathbf{h}) = \prod_i p_h(h_i)
+\end{equation*}
+% 
+with the observed (visible) following:
+% 
+\begin{equation*}
+    \mathbf{v} = \mathbf{F} \mathbf{h} + \mathbf{c} + \epsilon 
+\end{equation*}
 
 \section{Intractable Likelihood Functions}
+We'll look at three scenarios. Firstly, unobserved varibles. Assuming the following likelihood form:
+% 
+\begin{equation*}
+    \text{L}(\theta) = \prob(\mathcal{D}; \theta) =
+        \int_u p(\underbrace{\mathbf{u}}_\text{Unobserved}, \mathcal{D}; \theta)\ \text{d}\mathbf{u}
+\end{equation*}
+%
+This is intractable, since we need to integrate over the observed, which are ... unobserved. We can use monte-carlo integration (below) if we know their distribution. However, it turns out that the gradient of the likelihood we can compute in a more convenient way:
+% 
+\begin{equation*}
+    \nabla_\theta l(\theta) = \mathbb{E}_{\bu \sim \prob(\bu \giv \mathcal{D}; \theta)} \bigg[ \nabla_\theta \log \prob(\bu, \mathcal{D}; \theta) \giv \mathcal{D}; \theta \bigg]
+\end{equation*}
+% 
+It is in most cases that we can compute the joint $p(\bu, \mathcal{D}; \theta)$ and conditional $p(\bu \giv \mathcal{D}; \theta)$. We can sample from the conditional and use Monte-Carlo integration.
+
+TODO: proof
+
+\subsection{Intractable Partition Function}
+If the partition $Z(\theta)$ is intractable, we generally have the distribution up to a constant:
+% 
+\begin{equation*}
+    \prob(\bx; \theta) = \frac{
+        \prob^*(\bx; \theta)
+    } {
+        Z(\theta)
+    }
+\end{equation*}
+
+Then we can use moment matching.
+
+\begin{align*}
+    \nabla_\theta l(\theta) &=  \sum_i m(\bx_i; \theta) - n \int m(\bx; \theta) \prob(\bx; \theta) \text{d} \theta \\
+    &\propto \frac{1}{n} \sum_i m(\bx_i; \theta) - \mathbb{E} \big[ m(\bx; \theta) \big]
+\end{align*}
+
+where $m(\bx; \theta) = \nabla_\theta \prob^*(\bx; \theta)$
+
 \section{Score Matching}
 \section{Sampling and Monte Carlo}
 
