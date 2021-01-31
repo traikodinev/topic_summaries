@@ -1,0 +1,124 @@
+\iffalse
+This is a big-ish template that I've been using for years now.
+A lot of the includes are redundant, so if you're reading this and have no idea why
+I've included most things, don't worry - I don't either.
+Also, compiling this (to PDF, for instance) relies on CSS files present on my
+computer (coming from the packages). So it might not look as nice if you
+do it on yours (especially if you don't have all the packages).
+
+Ya'll've been warned.
+\fi
+
+\documentclass{article}
+    \usepackage{subcaption}
+    \usepackage{todonotes}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{color}
+    % \usepackage[dvipsnames]{xcolor}
+    \usepackage{graphicx}
+    \usepackage{caption}
+    \usepackage{float}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage{enumitem}
+    \usepackage[bottom]{footmisc}
+    \usepackage{flexisym}
+    \usepackage{cancel}
+    \usepackage[braket]{qcircuit}
+    \usepackage[margin=.8in, tmargin=.3in]{geometry}
+    \renewcommand{\baselinestretch}{1.2}
+    \newcommand{\eps}{\epsilon}
+
+
+    \newcommand{\vq}{\mathbf{q}}
+    \newcommand{\vqdot}{\mathbf{\dot{q}}}
+    \newcommand{\vqddot}{\mathbf{\ddot{q}}}
+    \newcommand{\vx}{\mathbf{x}}
+    \newcommand{\vy}{\mathbf{y}}
+    \newcommand{\vystar}{\mathbf{y}^*}
+    \newcommand{\vu}{\mathbf{u}}
+    \newcommand{\vv}{\mathbf{v}}
+    \newcommand{\vf}{\mathbf{f}}
+    \newcommand{\vr}{\mathbf{r}}
+    \newcommand{\vp}{\mathbf{p}}
+    \newcommand{\vg}{\mathbf{G}}
+    \newcommand{\bM}{\mathbf{M}}
+    \newcommand{\bC}{\mathbf{C}}
+    \newcommand{\bS}{\mathbf{S}}
+    \newcommand{\bJ}{\mathbf{J}}
+    \newcommand{\vlam}{\pmb{\lambda}}
+    \newcommand{\vxdot}{\mathbf{\dot{x}}}
+    \newcommand{\argmin}{\operatornamewithlimits{arg\ min}}
+
+    % \newcommand{\tens}{\otimes}
+
+
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\limits_{#1}}%
+}
+
+    \setlength{\parskip}{\baselineskip}
+    % \newcommand{\l}{\left(}
+    
+    \usepackage{titlesec}
+    \usepackage{physics}
+    
+    \setlength\parindent{0pt}
+    \captionsetup{justification=centering}
+    
+    \title{Classical Mechanics: From Newton to Euler-Lagrange}
+    \date{\today}
+    \author{Traiko Dinev \textless traiko.dinev@gmail.com\textgreater}
+
+\begin{document}
+\maketitle
+\textit{NOTE: These notes are a summary of Classical Mechanics: A Theoretical Minimum. They also contain some of David Morrin. Some of the notebooks are exercises I did through my own research.}
+
+\textit{NOTE: Note this "summary" is NOT a reproduction of the course materials nor is it copied from the corresponding courses. It was entirely written and typeset from scratch.}
+
+\textit{License: Creative Commons public license; See README.md of repository}
+
+Hey, it is me, the author of these notes. I used to think reading physics was pointless practically speaking, so I did it a bit sparingly. But then.. I actually needed it in my own research! So I'm citing my work here~\cite{dinev2020modeling}. Hopefully it encourages more academics to read physics at a moderate to advanced level, as you never know when you'll need it!
+
+
+\section{Lagrange}
+\todo[inline]{format }
+
+We use the Lagrangian method to derive the dynamics of the system ~\cite[Chapter~6]{morin_introduction_2008}. 
+First, we define the position $x_b, z_b$ of the mass $m_b$ and its velocity $\dot{x}_b, \dot{z}_b$:
+% 
+% \vskip 0.1in
+\begin{align}
+    x_b &= x + l\ \sin(\theta) \\
+    z_b &= z + l\ \cos(\theta) \nonumber \\
+    \dot{x}_b &= \dot{x} + \dot{l}\ \sin(\theta) +
+        l\ cos(\theta)\ \dot{\theta} \nonumber \\
+    \dot{z}_b &= \dot{z} + \dot{l}\ \cos(\theta) -
+        l\ sin(\theta)\ \dot{\theta} \nonumber
+\end{align}
+% \vskip 0.1in
+% 
+Lagrange's method states that for a system with total kinetic energy $T$ and potential energy $U$:
+% 
+\vskip 0.1in
+\begin{equation} \label{eq:lagrange}
+    \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \vqdot_i} - \frac{\partial \mathcal{L}}{\partial \vq_i} = \vf_{ext},
+\end{equation}
+\vskip 0.1in
+% 
+where $\mathcal{L} = T - U$ is the system's Lagrangian and $\vf_{ext}$ are external forces applied to the system. We now need to compute the system's kinetic and potential energy.
+
+In general, every link will have a rotational and translational kinetic energy component. For the wheel we include a rotational kinetic energy term $I_w \dot{\phi}^2$ where $I_w = m_w R_w^2$ is the moment of inertia of the wheel. Since the point mass has a zero moment of inertia, it only has a translational kinetic energy $m_b \vv_b^T \vv_b$, where $\vv_b$ is the velocity of the point mass.
+
+The only potential energy component is due to gravity $g$ acting on the wheel and the point mass. This leads to:
+% 
+\begin{align} \label{eq:energy1}
+    T &= \frac{1}{2}(I_w \ \dot{\phi}^2 + m_w \dot{x}^2 +
+        m_w \dot{z}^2 + m_b \dot{x}_b^2 + m_b \dot{z}_b^2) \\
+    U &= m_w g z + m_b g z_b \label{eq:energy2} \\
+    \mathcal{L} &= T - U \label{eq:energy3}
+\end{align}
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,IEEEconf,bib}
+\end{document}
