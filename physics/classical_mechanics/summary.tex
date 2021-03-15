@@ -419,7 +419,7 @@ Since we did not specify or impose any constraints on $t_A$ and $t_B$, this is v
     \frac{d}{dt} \sum_i \frac{\partial \mathcal{L}}{\partial \dot{q}_i} \eta_i = 0
 \end{align*}
 
-and $Q$ is conserved.
+and $Q$ is conserved as its derivative is $0$ everywhere along the path.
 
 
 \subsection{Back to Physics}
@@ -435,6 +435,60 @@ The \textbf{conjugate momemtum} is defined as:
     p = \frac{\partial \mathcal{L}}{\partial \dot{q}}
 \end{equation}
 
+
+\subsubsection{Translational Invariance Leads to Conservation of Linear Momentum}
+Consider a translation transformation:
+
+\begin{equation*}
+    q_i' = q_i + \epsilon_i
+\end{equation*}
+
+Then if the Lagrangian is invariant under such a transformation, the quantinity:
+
+\begin{equation*}
+    Q = \sum_i \frac{\partial \mathcal{L}}{\partial \dot{q}_i} \epsilon_i
+\end{equation*}
+
+is conserved and so is the conjugate momentum, since $\epsilon$ is a constant.
+
+\subsubsection{Total Linear Momentum Conservation}
+Consider a vector potential that only depends on the relative distance between $N$ particles $\bm{x}_i$, where $i \in [1, N]$:
+
+\begin{equation*}
+    \mathcal{L} = \sum_i \left[ m_i \frac{1}{2} \dot{\bm{x}}_i^T \dot{\bm{x}}_i - \sum_{b \neq a} V(\bm{x}_a - \bm{x}_b) \right] 
+\end{equation*}
+
+Then shifting the entire system by the same vector does not change the lagrangian and the action. The velocity change is $0$ and the potential change is also $0$ as:
+
+\begin{align*}
+    \bm{x}_i' &= \bm{x}_i + \bm{\epsilon} \\
+    \bm{x}_a' - \bm{x}_b' &= (\bm{x}_a + \bm{\epsilon}) - (\bm{x}_b + \bm{\epsilon}) = \bm{x}_a - \bm{x}_b
+\end{align*}
+
+which means that:
+
+\begin{equation*}
+    Q = \sum_i \frac{\partial L}{\partial \dot{\bm{x}}_i} = 
+        \sum_i m_i \bm{\dot{x}}_i
+\end{equation*}
+
+is conserved. This is the sum linear momentum of the system.
+
+\subsubsection{Rotational Invariance Leads to Angular Momentum Conservation}
+TODO
+
+\section{Time-Translational Invariance Leads to Energy Convervation}
+
+\section{Harmonic Oscillator: Hamiltonians}
+
+\section{Gibbs Liouville}
+
+\section{Poisson Brackets}
+
+\section{Electromagnetic Force}
+\subsection{Lorentz Force Law}
+\subsection{Vector Potential}
+\subsection{Gauge Invariance}
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,IEEEconf,bib}
